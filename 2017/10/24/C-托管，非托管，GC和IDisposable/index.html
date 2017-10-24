@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="C#,学习笔记," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="C#中的托管资源与GC从C和C++说起众所周知，C和C++（即使在C++11标准之后）的内存管理一向是公认很难掌握的一个知识点。这倒不是因为它本身的复杂性，而是因为就算知道了有关的概念和函数，也很难在正确的时点和位置调用这些函数:  我怎么知道到底有没有内存泄漏？我怎么知道我在前面哪里用了malloc或者new？我怎么知道这个指针有没有被delete过？  而C++11标准里已经有了std::sh">
+<meta name="keywords" content="C#,学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#:托管，非托管，GC和IDisposable">
+<meta property="og:url" content="http://yoursite.com/2017/10/24/C-托管，非托管，GC和IDisposable/index.html">
+<meta property="og:site_name" content="78ij&#39;s Notes">
+<meta property="og:description" content="C#中的托管资源与GC从C和C++说起众所周知，C和C++（即使在C++11标准之后）的内存管理一向是公认很难掌握的一个知识点。这倒不是因为它本身的复杂性，而是因为就算知道了有关的概念和函数，也很难在正确的时点和位置调用这些函数:  我怎么知道到底有没有内存泄漏？我怎么知道我在前面哪里用了malloc或者new？我怎么知道这个指针有没有被delete过？  而C++11标准里已经有了std::sh">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-24T10:41:59.578Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C#:托管，非托管，GC和IDisposable">
+<meta name="twitter:description" content="C#中的托管资源与GC从C和C++说起众所周知，C和C++（即使在C++11标准之后）的内存管理一向是公认很难掌握的一个知识点。这倒不是因为它本身的复杂性，而是因为就算知道了有关的概念和函数，也很难在正确的时点和位置调用这些函数:  我怎么知道到底有没有内存泄漏？我怎么知道我在前面哪里用了malloc或者new？我怎么知道这个指针有没有被delete过？  而C++11标准里已经有了std::sh">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/24/C-托管，非托管，GC和IDisposable/"/>
+
+
+
+
+
+  <title>C#:托管，非托管，GC和IDisposable | 78ij's Notes</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">78ij's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/24/C-托管，非托管，GC和IDisposable/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="78ij">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="78ij's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C#:托管，非托管，GC和IDisposable</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-24T18:39:38+08:00">
+                2017-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="C-中的托管资源与GC"><a href="#C-中的托管资源与GC" class="headerlink" title="C#中的托管资源与GC"></a>C#中的托管资源与GC</h1><h2 id="从C和C-说起"><a href="#从C和C-说起" class="headerlink" title="从C和C++说起"></a>从C和C++说起</h2><p>众所周知，C和C++（即使在C++11标准之后）的内存管理一向是公认很难掌握的一个知识点。这倒不是因为它本身的复杂性，而是因为就算知道了有关的概念和函数，也很难在正确的时点和位置调用这些函数:</p>
+<blockquote>
+<p>我怎么知道到底有没有内存泄漏？<br>我怎么知道我在前面哪里用了<code>malloc</code>或者<code>new</code>？<br>我怎么知道这个指针有没有被<code>delete</code>过？</p>
+</blockquote>
+<p>而C++11标准里已经有了<code>std::shared_ptr</code>，<code>std::make_shared</code>这些组件，而它们实现了引用计数这个神奇的机制，那我们自然可以更进一步，实现一种叫垃圾回收(<code>GC</code>)的东西。<br><a id="more"></a></p>
+<h2 id="C-：托管资源和非托管资源"><a href="#C-：托管资源和非托管资源" class="headerlink" title="C#：托管资源和非托管资源"></a>C#：托管资源和非托管资源</h2><p>先来复习一下。C#中，几乎所有的变量都是引用类型，并且派生自一个基类<code>System.Object</code>（其中值类型变量均派生自<code>System.ValueType</code>，而这个类同样派生自<code>System.Object</code>）。大多数在程序运行过程中用户定义的变量（指的是用<code>new</code>运算符定义的引用类型，值类型在程序出作用域之后会自动出线程栈而被删除）都分配在堆<code>heap</code>上。这些资源就是<em>托管资源</em>。<br></p>
+<p>托管资源，看起来有点吓人，其实“托管”的不过是它的内存管理而已。也就是说，这个对象的生存周期，它的删除之类的都“托管”给系统(<code>CLR</code>)去做。程序员不用太费心思自己去管理这些东西。</p>
+<p>那什么是非托管资源呢？其实也很简单，就是系统不知道怎么去处理的那些玩意。比如：<code>FileStream</code>，<code>Handle</code>之类的，类似于指针的东西。非托管资源还是需要程序员手动去释放，或者编写一个固定的方法，封装之后再通过垃圾回收去释放。</p>
+<h2 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>简要说一下 .net中C#垃圾回收的原理。根据《C# Essentials 4th Edition》的说法，.net对于C#垃圾回收的方法很聪明。这个方法名为<code>mark-and-compact</code>,具体步骤是这样的：</p>
+<ol>
+<li>通过一定的算法(具体是通过树或者图实现的)统计堆中有对其引用的对象，打上标记。</li>
+<li>把这些打上标记的对象移动，使其成线性排列。</li>
+</ol>
+<p>上面第二步事实上覆盖了一些没有引用的对象。以上的垃圾回收方法经过实践证明，速度是比较可观的。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
+<li>为了保证上述算法的可行性，显然在垃圾回收期间堆中各数据的位置不能发生变化，否则会乱掉。所以在垃圾回收执行时，其他所有操作都会被暂停。如果垃圾回收的操作比较多，程序会显著地“卡”一下。</li>
+<li>“代”（<code>generation</code>）的概念。这是一个优化手段。我们举例说明，假如我们创建了一个比较重要的对象，要求这个对象在程序运行周期内存在较长的时间。那么我们必将一直维持对其的引用。这样，这个对象就将在垃圾回收中一直“存活”。每当这个对象存活过一次垃圾回收，系统就会将其的“代”数加一。而在垃圾回收时，“代”数高的对象被检查的频率会变小（即程序判断这个对象比较重要），从而提升垃圾回收的效率。</li>
+</ol>
+<h1 id="IDisposable"><a href="#IDisposable" class="headerlink" title="IDisposable"></a>IDisposable</h1><h2 id="为什么需要这个接口？"><a href="#为什么需要这个接口？" class="headerlink" title="为什么需要这个接口？"></a>为什么需要这个接口？</h2><p>谈到<code>IDisposable</code>，就不得不说垃圾回收的另一个重要特点：不确定性。C++中，定义一个类的同时，必定会有一个析构函数，这个函数命名为<code>~[类名]</code>，用于释放这个对象包含的资源。（<em>注意：此处“资源”指的是对象中包含的资源，如其成员字段引用的对象等</em>）C#中，一个类同样也会有这样一个函数，不过这个函数称为终结器<code>Finalizer</code>。C++中，变量出了作用域，析构函数就会被自动调用。然而C#中并非如此。在C#的垃圾回收机制中存在着一个队列<code>f-reachable</code>，这个队列中存储了所有准备好垃圾回收的对象，并且依次调用它们的终结器。由此看来，C#的终结器，或者说资源释放机制的调用不一定是即时的。</p>
+<h2 id="IDisposable的出现"><a href="#IDisposable的出现" class="headerlink" title="IDisposable的出现"></a>IDisposable的出现</h2><p>这样就出现了一个问题：如果待回收的对象里引用了一个占用大量系统资源（比如说，一个很大的文件）的对象，这种资源释放时点不确定性是不能容许的。否则将会引发不可预料的问题。这时候，就不能仅仅依靠终结器。C#提供了一个方案：对这种类程序员可以选择实现IDisposable接口。该接口包含一个函数<code>public void Dispose()</code>，程序员可以利用这个函数实现对当前类中资源的释放等等操作，并在外部调用，从而实现确定性的资源释放。</p>
+<h2 id="终结器和Dispose函数的联合使用"><a href="#终结器和Dispose函数的联合使用" class="headerlink" title="终结器和Dispose函数的联合使用"></a>终结器和Dispose函数的联合使用</h2><h3 id="省事的办法和出现的问题"><a href="#省事的办法和出现的问题" class="headerlink" title="省事的办法和出现的问题"></a>省事的办法和出现的问题</h3><p>我们很容易看出，终结器和Dispose函数的功能有一部分是重合的：释放资源。但是这里出现了一个问题：这两个函数使用的场景是不同的。终结器只会被垃圾回收机制所调用，而Dispose函数一般是程序员调用。这两者有什么区别呢？我们看一段代码(对《C# Essentials 4th Edition》多有借鉴)：<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//...</span></div><div class="line">    <span class="keyword">class</span> <span class="title">ExampleClass</span> : <span class="title">IDisposable</span> &#123;</div><div class="line">      <span class="keyword">private</span> UnmanagedResource _Unmanaged;</div><div class="line">      <span class="keyword">private</span> ManagedResource _Mananged;</div><div class="line">      <span class="keyword">public</span> UnmanagedResource Unmanaged&#123;<span class="keyword">get</span>;<span class="keyword">set</span>;&#125;</div><div class="line">      <span class="keyword">public</span> ManagedResource Mananged&#123;<span class="keyword">get</span>;<span class="keyword">set</span>;&#125;</div><div class="line">      <span class="comment">//以上四行定义了两个属性：一个是托管的一个是非托管的</span></div><div class="line">      <span class="comment">// ...</span></div><div class="line">      ~ExampleClass&#123;</div><div class="line">        Dispose(<span class="literal">false</span>);<span class="comment">// 1</span></div><div class="line">      &#125;</div><div class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Dispose</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        Dispose(<span class="literal">true</span>); <span class="comment">// 2</span></div><div class="line">        System.GC.SuppressFinalize(<span class="keyword">this</span>); <span class="comment">// 3</span></div><div class="line">      &#125;</div><div class="line">      <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Dispose</span>(<span class="params"><span class="keyword">bool</span> disposing</span>)</span>&#123; <span class="comment">// 重要函数！</span></div><div class="line">        <span class="keyword">if</span>(disposing)&#123;</div><div class="line">          <span class="keyword">if</span>(Managed != <span class="literal">null</span>)&#123;</div><div class="line">            Managed.Dispose();</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(UnManaged != <span class="literal">null</span>)&#123;</div><div class="line">          UnManaged.Release();</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line"><span class="comment">// ...</span></div></pre></td></tr></table></figure></p>
+<p>以上代码把所有的释放操作交给了一个重载函数<code>Dispose(bool disposing)</code>通过一个形参<code>disposing</code>的传递区分了Dispose被调用的情况和终结器被调用的情况。这两者的显著区别就是Dispose被调用时托管和非托管资源都会被释放，而终结器被调用的时候只会释放非托管资源。这是因为当终结器被调用的时候，就意味着该类引用的托管资源一定也在<code>f-reachable</code>队列中。但是究竟在该实例的前面还是后面呢？这个是不确定的。为了不产生意外的错误，我们把托管资源的释放全权交给垃圾处理系统，而我们只用管非托管资源就行了。<br><br>但是当我们手动调用Dispose的时候，情况就不同了。当我们手动调用它，就意味着我们立刻需要该类释放其所有资源，所以两者都会被释放。还有一点：注意上面代码的3位置，<code>System.GC.SuppressFinalize</code>被调用了。这个函数指示垃圾处理系统不要把该对象移入<code>f-reachable</code>队列中，因为我们已经手动处理过这个对象了，垃圾回收系统自然就不用再释放一次了。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>垃圾回收还是挺复杂的一个东西，涉及到很多比较高级的技巧和知识。我也只能说是摸到了一点皮毛。还是得继续学习啊。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C#</a>
+          
+            <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/23/各种测试/" rel="next" title="各种测试">
+                <i class="fa fa-chevron-left"></i> 各种测试
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTQ5MC84MDU0"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">78ij</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-中的托管资源与GC"><span class="nav-number">1.</span> <span class="nav-text">C#中的托管资源与GC</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#从C和C-说起"><span class="nav-number">1.1.</span> <span class="nav-text">从C和C++说起</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-：托管资源和非托管资源"><span class="nav-number">1.2.</span> <span class="nav-text">C#：托管资源和非托管资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#垃圾回收"><span class="nav-number">1.3.</span> <span class="nav-text">垃圾回收</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">1.3.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">1.3.2.</span> <span class="nav-text">特点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IDisposable"><span class="nav-number">2.</span> <span class="nav-text">IDisposable</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要这个接口？"><span class="nav-number">2.1.</span> <span class="nav-text">为什么需要这个接口？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDisposable的出现"><span class="nav-number">2.2.</span> <span class="nav-text">IDisposable的出现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#终结器和Dispose函数的联合使用"><span class="nav-number">2.3.</span> <span class="nav-text">终结器和Dispose函数的联合使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#省事的办法和出现的问题"><span class="nav-number">2.3.1.</span> <span class="nav-text">省事的办法和出现的问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">78ij</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -259,6 +259,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/24/C-托管，非托管，GC和IDisposable/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="78ij">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="78ij's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/10/24/C-托管，非托管，GC和IDisposable/" itemprop="url">C#:托管，非托管，GC和IDisposable</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-24T18:39:38+08:00">
+                2017-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="C-中的托管资源与GC"><a href="#C-中的托管资源与GC" class="headerlink" title="C#中的托管资源与GC"></a>C#中的托管资源与GC</h1><h2 id="从C和C-说起"><a href="#从C和C-说起" class="headerlink" title="从C和C++说起"></a>从C和C++说起</h2><p>众所周知，C和C++（即使在C++11标准之后）的内存管理一向是公认很难掌握的一个知识点。这倒不是因为它本身的复杂性，而是因为就算知道了有关的概念和函数，也很难在正确的时点和位置调用这些函数:</p>
+<blockquote>
+<p>我怎么知道到底有没有内存泄漏？<br>我怎么知道我在前面哪里用了<code>malloc</code>或者<code>new</code>？<br>我怎么知道这个指针有没有被<code>delete</code>过？</p>
+</blockquote>
+<p>而C++11标准里已经有了<code>std::shared_ptr</code>，<code>std::make_shared</code>这些组件，而它们实现了引用计数这个神奇的机制，那我们自然可以更进一步，实现一种叫垃圾回收(<code>GC</code>)的东西。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/24/C-托管，非托管，GC和IDisposable/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/23/各种测试/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -301,6 +462,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/测试/" itemprop="url" rel="index">
+                    <span itemprop="name">测试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -329,8 +512,7 @@
 
       
         
-          
-            <h1 id="测试一下大标题"><a href="#测试一下大标题" class="headerlink" title="测试一下大标题"></a>测试一下大标题</h1><h2 id="测试一下小标题"><a href="#测试一下小标题" class="headerlink" title="测试一下小标题"></a>测试一下小标题</h2><blockquote>
+          <h1 id="测试一下大标题"><a href="#测试一下大标题" class="headerlink" title="测试一下大标题"></a>测试一下大标题</h1><h2 id="测试一下小标题"><a href="#测试一下小标题" class="headerlink" title="测试一下小标题"></a>测试一下小标题</h2><blockquote>
 <p>测试一下引用<br></p>
 <p>测试一下<br>多行引用</p>
 </blockquote>
@@ -340,22 +522,14 @@
 </ul>
 <ol>
 <li>测试一下有序列表<br></li>
-<li>测试一下有序列表</li>
-</ol>
-<pre><code class="c"><span class="comment">//测试一下代码块</span>
-<span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span>
-<span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>{
-    <span class="built_in">printf</span>(<span class="string">"hello world!"</span>);
-    <span class="keyword">return</span> <span class="number">0</span>;
-}
-</code></pre>
-<p>测试一下行内代码<code>printf()</code><br></p>
-<p><a href="http://www.baidu.com" target="_blank" rel="external">测试一下链接</a></p>
-<p><em>强调一下</em></p>
-<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1509356716&amp;di=ff1a57a18319e5434512663999d999f5&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fimg.sj33.cn%2Fuploads%2Fallimg%2F201304%2F1323323T6-3.png" alt="插入一个图片"></p>
-<p>稍微测试一下hexo和next主题的显示之类的。没有什么实际意义的文章。</p>
-
-          
+<li>测试一下有序列表
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/10/23/各种测试/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -435,12 +609,21 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             
@@ -448,7 +631,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
