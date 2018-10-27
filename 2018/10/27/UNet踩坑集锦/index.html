@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Unity," />
 
 
 
@@ -86,13 +86,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="78ij&#39;s Notes">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta name="description" content="UNet踩坑集锦UNet是Unity5.x之后才出来的一个比较新的组件，提供了HLAPI和LLAPI两种API，其中HLAPI就是一系列的Component（NetworkManager,NetworkIdentity之类的，可以继承），LLAPI（NetworkTransport之类的）提供了一个协议和网络拓扑。这次要做一个多人项目，采用状态同步，要求也相对比较简单，可以使用HLAPI来完成这个">
+<meta name="keywords" content="Unity">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UNet踩坑集锦">
+<meta property="og:url" content="http://yoursite.com/2018/10/27/UNet踩坑集锦/index.html">
 <meta property="og:site_name" content="78ij&#39;s Notes">
+<meta property="og:description" content="UNet踩坑集锦UNet是Unity5.x之后才出来的一个比较新的组件，提供了HLAPI和LLAPI两种API，其中HLAPI就是一系列的Component（NetworkManager,NetworkIdentity之类的，可以继承），LLAPI（NetworkTransport之类的）提供了一个协议和网络拓扑。这次要做一个多人项目，采用状态同步，要求也相对比较简单，可以使用HLAPI来完成这个">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-27T12:39:33.726Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="78ij&#39;s Notes">
+<meta name="twitter:title" content="UNet踩坑集锦">
+<meta name="twitter:description" content="UNet踩坑集锦UNet是Unity5.x之后才出来的一个比较新的组件，提供了HLAPI和LLAPI两种API，其中HLAPI就是一系列的Component（NetworkManager,NetworkIdentity之类的，可以继承），LLAPI（NetworkTransport之类的）提供了一个协议和网络拓扑。这次要做一个多人项目，采用状态同步，要求也相对比较简单，可以使用HLAPI来完成这个">
 
 
 
@@ -122,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/27/UNet踩坑集锦/"/>
 
 
 
 
 
-  <title>归档 | 78ij's Notes</title>
+  <title>UNet踩坑集锦 | 78ij's Notes</title>
   
 
 
@@ -147,7 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -251,338 +256,231 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/27/UNet踩坑集锦/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="78ij">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="78ij's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">UNet踩坑集锦</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-27T20:16:13+08:00">
+                2018-10-27
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-27T20:39:33+08:00">
+                2018-10-27
+              </time>
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 8 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
 
-      
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">笔记</span>
+                  </a>
+                </span>
 
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/27/UNet踩坑集锦/" itemprop="url">
-              
-                <span itemprop="name">UNet踩坑集锦</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-27T20:16:13+08:00"
-              content="2018-10-27" >
-          10-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/05/19/packpku/" itemprop="url">
-              
-                <span itemprop="name">HackPKU游记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-19T16:11:35+08:00"
-              content="2018-05-19" >
-          05-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/03/01/music/" itemprop="url">
-              
-                <span itemprop="name">关于游戏配乐</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-03-01T15:48:16+08:00"
-              content="2018-03-01" >
-          03-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/25/depth-precision-visualized/" itemprop="url">
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">可视化展现图形学中的深度精确度问题</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  544
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-25T13:02:15+08:00"
-              content="2017-12-25" >
-          12-25
-        </time>
-      </div>
+              
 
-    </header>
-  </article>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/02/trivial/" itemprop="url">
-              
-                <span itemprop="name">随便写写</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-02T19:15:10+08:00"
-              content="2017-12-02" >
-          12-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/09/Phong/" itemprop="url">
-              
-                <span itemprop="name">Phong反射模型</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-09T17:14:06+08:00"
-              content="2017-11-09" >
-          11-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h1 id="UNet踩坑集锦"><a href="#UNet踩坑集锦" class="headerlink" title="UNet踩坑集锦"></a>UNet踩坑集锦</h1><p>UNet是Unity5.x之后才出来的一个比较新的组件，提供了HLAPI和LLAPI两种API，其中HLAPI就是一系列的Component（<code>NetworkManager</code>,<code>NetworkIdentity</code>之类的，可以继承），LLAPI（<code>NetworkTransport</code>之类的）提供了一个协议和网络拓扑。这次要做一个多人项目，采用状态同步，要求也相对比较简单，可以使用HLAPI来完成这个任务。但是由于UNet太新，Scripting Reference里面的说明往往过于简单，导致过程中踩坑很多，故开此篇记录一下踩坑过程（持续更新）</p>
+<a id="more"></a>
+<h2 id="NetworkDiscovery"><a href="#NetworkDiscovery" class="headerlink" title="NetworkDiscovery"></a>NetworkDiscovery</h2><p>这个项目打算做局域网对战，所以需要一个局域网内的”房间“系统，同时服务端向整个局域网内广播信息，客户端收到之后将房间信息显示出来。</p>
+<p>UNet有一个现成的实现：<code>NetworkDiscovery</code>类，但是基本没有任何文档。所以有几个地方要注意：</p>
+<ul>
+<li>在StartAsServer() 或者 StartAsClient() 之前要先调用Initialize() 。</li>
+</ul>
+<p>以下引用自<a href="http://gad.qq.com/topic/detail/35325" target="_blank" rel="external">这里</a>。原文是2017年的，我目前还没遇到这些问题，不知道修了没有</p>
+<ul>
+<li><p>单词广播上限是512个字符。</p>
+</li>
+<li><p>广播字符串在广播服务器启动以后即使被修改，广播内容也不会改变。必须关掉广播，再重新初始化配置，再重新启动广播服务器才行，而且需要等一段时间重启。</p>
+</li>
+<li><p>如果后续的字符串比前面的字符串短，则会保留前一个字符串后面的部分。</p>
+</li>
+</ul>
+<h1 id="NetworkLobbyManager"><a href="#NetworkLobbyManager" class="headerlink" title="NetworkLobbyManager"></a>NetworkLobbyManager</h1><p> 如果打算做一个游戏大厅，最好就是使用NetworkLobbyManager，这个类继承了NetworkManager类，而且可以在所有玩家准备完毕之后自动切换场景。但是其文档也十分匮乏，很多坑我是看了Unity官方的Tank那个Demo才看出来的</p>
+<ul>
+<li>由于未知原因，在测试的时候（一般是Editor和Release各一个游戏实例测试）时，只有让Editor那边当Server才行。（应该是我哪个地方写炸了，等待另一台电脑测试）</li>
+<li>可动的物体要加上Network Transform才能同步位置（一开始我还不知道）</li>
+</ul>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/24/C-托管，非托管，GC和IDisposable/" itemprop="url">
-              
-                <span itemprop="name">C#:托管，非托管，GC和IDisposable</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-24T18:39:38+08:00"
-              content="2017-10-24" >
-          10-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/10/23/各种测试/" itemprop="url">
-              
-                <span itemprop="name">各种测试</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-10-23T17:19:04+08:00"
-              content="2017-10-23" >
-          10-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Unity/" rel="tag"><i class="fa fa-tag"></i> Unity</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/05/19/packpku/" rel="next" title="HackPKU游记">
+                <i class="fa fa-chevron-left"></i> HackPKU游记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -590,6 +488,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTQ5MC84MDU0"></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -610,8 +517,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -690,6 +606,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#UNet踩坑集锦"><span class="nav-number">1.</span> <span class="nav-text">UNet踩坑集锦</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NetworkDiscovery"><span class="nav-number">1.1.</span> <span class="nav-text">NetworkDiscovery</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NetworkLobbyManager"><span class="nav-number">2.</span> <span class="nav-text">NetworkLobbyManager</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -833,6 +765,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 
@@ -861,6 +797,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
