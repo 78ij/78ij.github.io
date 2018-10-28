@@ -94,7 +94,7 @@
 <meta property="og:site_name" content="78ij&#39;s Notes">
 <meta property="og:description" content="UNet踩坑集锦UNet是Unity5.x之后才出来的一个比较新的组件，提供了HLAPI和LLAPI两种API，其中HLAPI就是一系列的Component（NetworkManager,NetworkIdentity之类的，可以继承），LLAPI（NetworkTransport之类的）提供了一个协议和网络拓扑。这次要做一个多人项目，采用状态同步，要求也相对比较简单，可以使用HLAPI来完成这个">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-27T12:39:33.726Z">
+<meta property="og:updated_time" content="2018-10-28T11:17:26.481Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UNet踩坑集锦">
 <meta name="twitter:description" content="UNet踩坑集锦UNet是Unity5.x之后才出来的一个比较新的组件，提供了HLAPI和LLAPI两种API，其中HLAPI就是一系列的Component（NetworkManager,NetworkIdentity之类的，可以继承），LLAPI（NetworkTransport之类的）提供了一个协议和网络拓扑。这次要做一个多人项目，采用状态同步，要求也相对比较简单，可以使用HLAPI来完成这个">
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-10-27T20:39:33+08:00">
-                2018-10-27
+              <time title="更新于" itemprop="dateModified" datetime="2018-10-28T19:17:26+08:00">
+                2018-10-28
               </time>
             
           </span>
@@ -376,7 +376,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  544
+                  603
                 </span>
               
 
@@ -421,6 +421,7 @@
 <ul>
 <li>由于未知原因，在测试的时候（一般是Editor和Release各一个游戏实例测试）时，只有让Editor那边当Server才行。（应该是我哪个地方写炸了，等待另一台电脑测试）</li>
 <li>可动的物体要加上Network Transform才能同步位置（一开始我还不知道）</li>
+<li>NetworkLobbyManager会帮你管理场景（LobbyScene/InGameScene)，但是在Lobby的时候，LobbyScene必须是当前活跃的主场景（Editor里面场景是黑体加粗），不然启动不了服务器（会报错）。（这个实在是太坑了）</li>
 </ul>
 
       
