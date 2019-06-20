@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="音乐,乐理," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="系列的第二篇。">
+<meta name="keywords" content="音乐,乐理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="音乐基础-Chapter2">
+<meta property="og:url" content="http://yoursite.com/2019/06/20/音乐基础-2/index.html">
+<meta property="og:site_name" content="78ij&#39;s Notes">
+<meta property="og:description" content="系列的第二篇。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554736905878&di=3b38a8d89838470147463009edfe02ef&imgtype=0&src=http%3A%2F%2Fgss0.baidu.com%2F-fo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2Fb2de9c82d158ccbf12d6a40a1ed8bc3eb1354193.jpg">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555425536305&di=f2983c5870e3b59b18f819048b5a066e&imgtype=0&src=http%3A%2F%2Fp.ananas.chaoxing.com%2Fstar%2F1024_0%2F1386039611568jbcwz.jpg">
+<meta property="og:image" content="http://p.ananas.chaoxing.com/star/1024_0/1386042618486qivnd.jpg">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555425563228&di=7ebfb766667797a63886a80da2fb846f&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F4d086e061d950a7bae4214dd0cd162d9f2d3c9b0.jpg">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555476845447&di=7d5fb37cb7209a20a6ddeee177438993&imgtype=0&src=http%3A%2F%2Fgss0.baidu.com%2F-vo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2F4a36acaf2edda3cc794ffd5802e93901213f921a.jpg">
+<meta property="og:image" content="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3987148217,3062573578&fm=173&app=49&f=JPEG?w=640&h=246&s=0AAE7C2297F559920ADDD1D30000C0B1">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556026296&di=86ab391d8e995e00d9ff35647eaaa56b&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.musicdu.com%2FUpload%2F2016New%2F04%2F14%2F6359624368321979753837278.jpg">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555425536305&di=f2983c5870e3b59b18f819048b5a066e&imgtype=0&src=http%3A%2F%2Fp.ananas.chaoxing.com%2Fstar%2F1024_0%2F1386039611568jbcwz.jpg">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555476845447&di=7d5fb37cb7209a20a6ddeee177438993&imgtype=0&src=http%3A%2F%2Fgss0.baidu.com%2F-vo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2F4a36acaf2edda3cc794ffd5802e93901213f921a.jpg">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555476344700&di=9da067874b2f4a846ce64b53a4d249f0&imgtype=0&src=http%3A%2F%2Fwww.musiceol.com%2Fnews%2Fhtml%2F2015-7%2Fimages%2F201577130427478.png">
+<meta property="og:image" content="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike72%2C5%2C5%2C72%2C24/sign=12af4427728b4710da22f59ea2a7a898/908fa0ec08fa513d8e99d0d83d6d55fbb2fbd981.jpg">
+<meta property="og:image" content="http://www.musiceol.com/news/html/2015-12/images/2015121414653016.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/17/5cb6fde1a91ad.png">
+<meta property="og:updated_time" content="2019-06-20T14:11:26.032Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="音乐基础-Chapter2">
+<meta name="twitter:description" content="系列的第二篇。">
+<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554736905878&di=3b38a8d89838470147463009edfe02ef&imgtype=0&src=http%3A%2F%2Fgss0.baidu.com%2F-fo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2Fb2de9c82d158ccbf12d6a40a1ed8bc3eb1354193.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/20/音乐基础-2/"/>
+
+
+
+
+
+  <title>音乐基础-Chapter2 | 78ij's Notes</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">78ij's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/20/音乐基础-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="78ij">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="78ij's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">音乐基础-Chapter2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-20T22:09:03+08:00">
+                2019-06-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-20T22:11:26+08:00">
+                2019-06-20
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/音乐相关/" itemprop="url" rel="index">
+                    <span itemprop="name">音乐相关</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/音乐相关/文章/" itemprop="url" rel="index">
+                    <span itemprop="name">文章</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/音乐相关/文章/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,979
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>系列的第二篇。</p>
+<a id="more"></a>
+<h1 id="音乐基础-——-2-调式，音程和和声"><a href="#音乐基础-——-2-调式，音程和和声" class="headerlink" title="音乐基础 —— 2. 调式，音程和和声"></a>音乐基础 —— 2. 调式，音程和和声</h1><p>和上一节一样，建议读者手头最好有一架钢琴/电钢琴/midi键盘/任何电脑音乐制作软件提供的钢琴窗(Piano Scroll)。这个要求在本节尤为重要——因为你将用这些工具来聆听某些音符组合的音响效果。注意：不管音乐理论多么复杂，音乐本身始终是感性的（心理声学还有许多没研究清楚的命题！），因此为了培养出乐感，除了<strong>多听</strong>别无他法。</p>
+<h2 id="音阶（Scale）和调式（Mode）"><a href="#音阶（Scale）和调式（Mode）" class="headerlink" title="音阶（Scale）和调式（Mode）"></a>音阶（Scale）和调式（Mode）</h2><p><code>音阶</code>是一个非常简单的概念。只要一系列不同的音高按序排列起来，我们就可以称它为音阶。比如，<code>CDEFGAB</code>是一个音阶，<code>C#B#AEDF</code>也是一个音阶。</p>
+<p>那么音阶对于音乐有什么作用呢？乍一看似乎十分不明确。要回答这个问题，我们可以想想画家的<code>调色板</code>，画家们在画布上作画，用的是调色板里面调配好的数种颜色，而作曲家在作曲时，使用的音也是有限的。这些音往往属于某个音阶。比如，中国古代的乐曲基于<code>五声音阶</code>：<code>CDEGA</code>，它们有更加为人所知的名字——宫、商、角、徵、羽。有时，人们也会在其中插入清角、变徵、变宫、闰四个变化音级构成六个和七个音的音阶。在没有<code>变调</code>的情况下乐曲中只会使用这些音阶中的音作为构成旋律和和声的主要音。</p>
+<p>音阶说完了，我们说说调式。我们看回这张图：</p>
+<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1554736905878&amp;di=3b38a8d89838470147463009edfe02ef&amp;imgtype=0&amp;src=http%3A%2F%2Fgss0.baidu.com%2F-fo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2Fb2de9c82d158ccbf12d6a40a1ed8bc3eb1354193.jpg" alt=""></p>
+<p>这次专注于钢琴琴键的部分。可以看到，每一个八度含有十二个音：C、D、E、F、G、A、B、C#，D#，F#，G#，A#。请注意：E、F之间和B、C之间没有黑键。其原因随后解释。</p>
+<p>那么，为什么一定是12个音？这个问题的回答也隐藏在之前提到的<code>律制</code>中，有兴趣可以搜索以下名词：<code>五度相生律</code>，<code>十二平均律</code>，<code>纯律</code>。我们只需要知道，除了一些现代音乐流派之外的所有音乐中，均是由这12个音以及它们对应八度上的音组成的。</p>
+<p>之前说过，任何几个音组成在一起都能叫做音阶，但为了平滑起见，我们认为，音阶内每个音的间隔不要太大为好。这里，我们介绍一个概念：<code>半音</code>。我们通常用它来衡量两个音之间的关系。钢琴上两个相邻键（不分黑白）之间的距离我们称之为一个半音。比如：C和C#相差1个半音，C和D相差2个半音，等等。相差两个半音的音我们称为相差一个<code>全音</code>。</p>
+<p>有些音阶的每对相邻音的间隔遵循相同的模式，我们称这些音阶属于一个<code>调式</code>，看两个例子：</p>
+<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1555425536305&amp;di=f2983c5870e3b59b18f819048b5a066e&amp;imgtype=0&amp;src=http%3A%2F%2Fp.ananas.chaoxing.com%2Fstar%2F1024_0%2F1386039611568jbcwz.jpg" alt=""></p>
+<p><img src="http://p.ananas.chaoxing.com/star/1024_0/1386042618486qivnd.jpg" alt=""></p>
+<p>上面所示是<code>CDEFGAB</code>和<code>ABCDEFG</code>两种音阶，其每对相邻音之间的间隔分别为<code>全-全-半-全-全-全-半</code>和<code>全-半-全-全-半-全-全</code>。</p>
+<p>读者可以看出，<code>调式</code>这个概念事实上指的就是一类音阶，这些音阶具有相同的模式：音的数量相同，相邻音之间的间隔相同。我们再看一个音阶：</p>
+<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1555425563228&amp;di=7ebfb766667797a63886a80da2fb846f&amp;imgtype=0&amp;src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fzhidao%2Fpic%2Fitem%2F4d086e061d950a7bae4214dd0cd162d9f2d3c9b0.jpg" alt=""></p>
+<p>读者可以自己对照上面的键盘，确定上面的音阶属于什么类型。事实上，这个音阶也是一个自然大调音阶，只不过它的第一个音是bE。</p>
+<p>钢琴的黑白键就是通过自然大调确定的。C自然大调中的音都是白键，其他的音被作为变化音，作为黑键。设计上，这无疑是为了方便弹奏大调音阶构成的音乐而出现的。</p>
+<p>上面两种调式具有非常广泛的使用范围，我们称它们为<code>自然大调</code>和<code>自然小调</code>。值得注意的是，这两种调式是在历史的长河中被“筛选”出来的。事实上，在中古时，教会规定了12种调式，统称为<code>教会调式</code>。自然大小调分别是这些调式中的<code>伊奥尼亚调式</code>和<code>爱奥利亚调式</code>，有兴趣可以自己查阅。有时候，在乐曲中运用教会调式有意想不到的神奇结果！</p>
+<p>调式和音阶的第一个音（称为<code>主音</code>）加起来叫做<code>调性</code>。比如上面的第一个音阶的调性是<code>C自然大调</code>，第二个是<code>A自然小调</code>，第三个是<code>bE自然大调</code>。</p>
+<p>在运用某一个调性创作音乐时，显而易见的是，不论在乐曲中什么时候遇见某些音，它们都会升或降（比如上面的bE大调，每次遇见E，A，B时，必须降半度），这个时候我们会将升降号写在五线谱表的一开始，叫做<code>调号</code>：</p>
+<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1555476845447&amp;di=7d5fb37cb7209a20a6ddeee177438993&amp;imgtype=0&amp;src=http%3A%2F%2Fgss0.baidu.com%2F-vo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2F4a36acaf2edda3cc794ffd5802e93901213f921a.jpg" alt=""></p>
+<p>以上是所有自然大调、小调的<code>调号</code>。注意，一个调号对应一个大调、一个小调。这两个调互称为<code>关系大（小）调</code>。大调的关系小调的主音是这个大调主音下三个半音。</p>
+<p>上面这张表是很难背下来的，事实上它也不用背。下一节将揭示这张表中有什么规律。</p>
+<p>这里还要说一点：自然小调并不经常被用在乐曲中，取代它的是<code>和声小调</code>，和声小调的构建方法是将自然小调的第七个音升一个半音，比如A和声小调为<code>ABCDEF#G</code>，这样做的原因在后文将得到解释。</p>
+<h2 id="音级（Degree）和音程（Interval）"><a href="#音级（Degree）和音程（Interval）" class="headerlink" title="音级（Degree）和音程（Interval）"></a>音级（Degree）和音程（Interval）</h2><p>在长时间对于音乐的研究中，音阶自然被赋予了特殊的意义。一个音阶里只有7个不同的音（八度不算），那么这7个音每一个都有它存在的理由——于是我们给每个音都取了个名字：</p>
+<p><img src="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3987148217,3062573578&amp;fm=173&amp;app=49&amp;f=JPEG?w=640&amp;h=246&amp;s=0AAE7C2297F559920ADDD1D30000C0B1" alt=""></p>
+<p>可以看到，音阶上每一个音对应一个罗马数字书写的<code>音级</code>，每个音级有一个名称。</p>
+<p>其中，最重要的几个音是<code>主音</code>、<code>属音</code>和<code>下属音</code>。<code>导音</code>有时候也占据十分重要的位置，其他几个位置的音相对来说被提及的没有那么多。</p>
+<p>关于<code>属音</code>为什么这么重要……好吧，还是得提一点律制。事实上，在各种确定音的频率的方法上，属音，即音阶的第五级音，其频率一般是主音的3/2倍。我们知道，一个谐振子（比如一根弦）上产生驻波的频率是基波的1倍，2倍，3倍……，对主音来说，2倍频率正好是下一个八度的主音，而3倍——大家猜到了，就是下一个八度的属音。在乐理中，我们认为音的频率互为整数倍，听起来更加协和（请自行复习大物中“拍”的概念），互为八度的主音之间自然是最为协和的，而第二协和的，正是主音和属音。因此主音和属音之间有了千丝万缕的联系。</p>
+<p>而下属音——注意，如果将下属音作为主音，则主音正是它的属音！因此，属音、下属音和主音具有很强的重要性。</p>
+<p>下面，我们终于要介绍一个非常关键的概念——<code>音程</code>了。现在介绍的度量音与音之间距离的单位只有全音和半音，这显然是不够的。那么现在我们介绍一个新的概念，称它为音程。</p>
+<p>要确定两个音之间的音程，需要两种信息：<code>音级</code>和<code>音数</code>。下面分别解释。</p>
+<p><code>音级</code>就是两个音之间包含多少个音级（包括两个音本身）。比如：C大调的C和G之间包含5个音级：<code>I，II，III，IV和V</code>。</p>
+<p><code>音数</code>我们很熟悉了：就是两个音之间有多少个半音。</p>
+<p>音程的表示方式为<code>XY度</code>，其中X为一个修饰符，Y为该音程的音级。这个修饰符可以是：<code>小，大，纯，增，减</code>等。其命名的原则可以参照下图：</p>
+<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1556026296&amp;di=86ab391d8e995e00d9ff35647eaaa56b&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fwww.musicdu.com%2FUpload%2F2016New%2F04%2F14%2F6359624368321979753837278.jpg" alt=""></p>
+<p>其中音数表示的方式为：半音是1/2，全音是1。3 1/2即为3个全音一个半音或者7个半音。</p>
+<p>可以看到，图中有四个音程用了“纯”来修饰，分别是一度，四度，五度和八度。这正好和之前我们讨论的“最协和”的概念相合。</p>
+<p>另外，增、减同样也可以用在图中没有说明的度数上。比如C-#G即为增五度，C-bA即为减六度。一般来说，修饰词对应的音程从小到大为：<code>减-小-大-增</code>或者<code>减-纯-增（当为纯音程时）</code>。</p>
+<p>上面仅仅是对音程命名规则的一个机械介绍，但音程的概念事实上和音阶联系紧密。看回这个C大调音阶：</p>
+<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1555425536305&amp;di=f2983c5870e3b59b18f819048b5a066e&amp;imgtype=0&amp;src=http%3A%2F%2Fp.ananas.chaoxing.com%2Fstar%2F1024_0%2F1386039611568jbcwz.jpg" alt=""></p>
+<p>其主音和各音级之间的音程为：纯一度，大二度，大三度，纯四度，纯五度，大六度，大七度，纯八度。大调音阶的主音和各个音级之间只可能为纯音程或者大音程。事实上，音程的命名就是从音阶导出的，而非相反。在记忆音程关系时，可以随时用大调音阶作为载体。</p>
+<p>一个全音对应的音程一定是大二度，一个半音对应的音程一定是小二度，今后我们将用音程术语指代所有的音间距离。</p>
+<p><strong>TIP：</strong>初学音程概念的人有时会为<code>等音程</code>这个概念困惑。考虑一下两个音程：增四度、减五度。它们的音数都是3（这意味着如果将它们在钢琴上弹出，听起来不会有任何区别），区别仅仅在于音级。但在乐理上，它们的区别可不止这些。乐理上，特别是在和声分析时，两个和声会出现这种等音程现象，这可以作为一种高级的<code>转调</code>方式使用。现在，我们暂且按下不表。</p>
+<p><strong>TIP2：</strong>看回这张调号表：</p>
+<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1555476845447&amp;di=7d5fb37cb7209a20a6ddeee177438993&amp;imgtype=0&amp;src=http%3A%2F%2Fgss0.baidu.com%2F-vo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2F4a36acaf2edda3cc794ffd5802e93901213f921a.jpg" alt=""></p>
+<p>上面说了纯五度这个音程的重要性，我们终于可以讲讲这张表中隐藏的奥妙了。首先看看上面这一排：</p>
+<p><code>G大调，D大调，A大调，E大调，B大调，#F大调，#C大调</code></p>
+<p>这几个音，是不是有些熟悉？它们之间的音程正是纯五度！（必要的时候，提升一个八度，比如D和A，我们将A看做D那个八度上面一个八度的A）</p>
+<p>再看看几个升号之间的关系。升号从左向右分别新增了以下音：<br><code>F,C,G,D,A,E,B</code></p>
+<p>我们惊奇地发现，它们之间的音程也正是纯五度！</p>
+<p>下面几个降号调之间的关系和升号是相同的，不同的是降号调的顺序是</p>
+<p><code>F大调,bB大调,bE大调,bA大调,bD大调,bG大调,bC大调</code></p>
+<p>从右向左，它们的音程也是纯五度。</p>
+<p>而降号增加的顺序是：</p>
+<p><code>B,E,A,D,G,C,F</code></p>
+<p>正是上面升号顺序的逆序。</p>
+<h2 id="和弦（Chord）"><a href="#和弦（Chord）" class="headerlink" title="和弦（Chord）"></a>和弦（Chord）</h2><p>三个及以上的音同时发响，它们就构成了一个<code>和弦</code>。因为人耳的固有特性，这三个音不会被作为分离的三个音来处理，而是作为一个整体被人脑认知并理解成单一的音响。（事实上，两个音也不会，只是传统上认为两个音同时发声不算和弦）</p>
+<p>为了讲清楚和弦，我们先简单的说说音程的和谐性。将两个间隔一定音程的音奏出，听起来感觉不同。我们基本可以将这些音响分为<code>协和</code>和<code>不协和</code>两类。传统乐理认为，</p>
+<ul>
+<li>协和音程有：纯一度，纯八度，纯四度，纯五度，大三度，小三度，大六度，小六度。</li>
+<li>不协和音程有：大二度，小二度，大七度，小七度，以及其他所有增、减音程。</li>
+</ul>
+<p>协和音程中间还细分为极协和音程（纯一八度），完全协和音程（纯四五度）和不完全协和音程（大小三六度）。</p>
+<p>协和并非一定是好事，不协和并非一定是坏事。记住：音乐不喜欢单调。如果一首歌从头到尾伴奏和人声的旋律都成纯八度关系，这首歌一定听起来单调极了。不完全协和甚至不协和可以在乐曲或者和弦中引入新奇的成分，令人的听觉得到一定的“期待感”和“满足感”——而这是音乐“好听”的原因之一。</p>
+<p>最基本的和弦是<code>三和弦</code>（Triad），它由三个音组成。</p>
+<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1555476344700&amp;di=9da067874b2f4a846ce64b53a4d249f0&amp;imgtype=0&amp;src=http%3A%2F%2Fwww.musiceol.com%2Fnews%2Fhtml%2F2015-7%2Fimages%2F201577130427478.png" alt=""></p>
+<p>从下到上，三个音被称为根音，三音和五音。这三个音之间形成了两个音程，我们一般用三音对于根音和五音对于三音的音程来唯一确定一个和弦。根据以上分类方法，三和弦被分为以下几类：</p>
+<p><img src="https://gss0.bdstatic.com/94o3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike72%2C5%2C5%2C72%2C24/sign=12af4427728b4710da22f59ea2a7a898/908fa0ec08fa513d8e99d0d83d6d55fbb2fbd981.jpg" alt=""></p>
+<p>其中：</p>
+<ul>
+<li>大三和弦：大三度，小三度，记为XM（X为根音）</li>
+<li>小三和弦：小三度，大三度，记为Xm（X为根音）</li>
+<li>增三和弦：大三度，大三度，记为X+（X为根音）</li>
+<li>减三和弦：小三度，小三度，记为X°（X为根音）</li>
+</ul>
+<p>后面两种用的很少，因为增三和弦的根音和五音之间为增五度，减三和弦为减五度，这造成非常紧张、不协和的音响效果（但恐怖游戏里可是用的不少！）</p>
+<p>上面的四个和弦分别记为CM,Cm,C+,C°。</p>
+<p>和弦都有所谓<code>转位</code>的概念。将和弦的三个音想象成三块积木，叠置起来。将最下面一块积木放到最上面（根音的下一个八度放在上面）称为第一转位，再将最下面一块积木放在最上面（三音的下一个八度放在上面）称为第二转位：</p>
+<p><img src="http://www.musiceol.com/news/html/2015-12/images/2015121414653016.png" alt=""></p>
+<p>注意，不管和弦怎么转，根音，三音和五音都不会变，即使他们不在原来的位置上（比如第一转位的根音在最上面）。</p>
+<p>因为三和弦的第一转位的三音和根音之间为六度，它经常被称为<code>六和弦</code>，因为第二转位的五音和根音之间为四度，五音和三音之间为六度，它经常被称为<code>四六和弦</code>。</p>
+<p>在乐曲中，六和弦常用，而四六和弦非常不常用（除了一种情况：<code>经过四六和弦</code>）。</p>
+<p>尽管和弦这个主题还有很多要说的，但我觉得这次讲的已经够多了，下面是阅读本次教程之后你应该学会的：</p>
+<ul>
+<li>从调号识别大、小调音阶的调性。</li>
+<li>给定调性，写出任意一个大、小调音阶。</li>
+<li>识别任意的八度之内的音程（比八度还宽的一般称为<code>复音程</code>，不重要）。</li>
+<li>给定三和弦，识别它的类型。</li>
+</ul>
+<p>你还应该：</p>
+<ul>
+<li>通过任意方式聆听大、小调音阶的音响效果。</li>
+<li>通过任意方式聆听所有类型三和弦的音响效果，<strong>牢记它们。如果你要扒谱，这是基本功。音乐生们的必修课之一——视唱练耳，就要求学生能听音响写（甚至是很复杂的）和弦。</strong></li>
+</ul>
+<p>下一次我们（应该）会涉及和声分析的内容，这需要你能比较快的识别各种调与和弦，尽管这十分枯燥，但……还是十分必要的。可以参考以下练习题：</p>
+<p><img src="https://i.loli.net/2019/04/17/5cb6fde1a91ad.png" alt=""></p>
+<p>augmented：增，diminished：减</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/音乐/" rel="tag"><i class="fa fa-tag"></i> 音乐</a>
+          
+            <a href="/tags/乐理/" rel="tag"><i class="fa fa-tag"></i> 乐理</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/20/音乐基础-1/" rel="next" title="音乐基础-Chapter1">
+                <i class="fa fa-chevron-left"></i> 音乐基础-Chapter1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTQ5MC84MDU0"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="78ij" />
+            
+              <p class="site-author-name" itemprop="name">78ij</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/78ij" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:x739566858@outlook.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+            
+          </div>
+
+          <br/><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/cn/80x15.png" /></a><br />
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#音乐基础-——-2-调式，音程和和声"><span class="nav-number">1.</span> <span class="nav-text">音乐基础 —— 2. 调式，音程和和声</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#音阶（Scale）和调式（Mode）"><span class="nav-number">1.1.</span> <span class="nav-text">音阶（Scale）和调式（Mode）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#音级（Degree）和音程（Interval）"><span class="nav-number">1.2.</span> <span class="nav-text">音级（Degree）和音程（Interval）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#和弦（Chord）"><span class="nav-number">1.3.</span> <span class="nav-text">和弦（Chord）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">78ij</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共22.3k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

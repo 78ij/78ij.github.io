@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="音乐,乐理," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="这一系列的文章本是组内新人任务的教程。虽然网上有很多关于乐理基础的文章和教程，但总感觉有些浅了，有些太深，更加上很多不太适合工科生阅读。故自己尝试写了写，发现要写教程还是好难啊（笑）.. 姑且把它们放在博客里，作为存档和记录吧。恳请有缘翻到的人不吝赐教，指出各种错漏之处。不胜感激。">
+<meta name="keywords" content="音乐,乐理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="音乐基础-Chapter1">
+<meta property="og:url" content="http://yoursite.com/2019/06/20/音乐基础-1/index.html">
+<meta property="og:site_name" content="78ij&#39;s Notes">
+<meta property="og:description" content="这一系列的文章本是组内新人任务的教程。虽然网上有很多关于乐理基础的文章和教程，但总感觉有些浅了，有些太深，更加上很多不太适合工科生阅读。故自己尝试写了写，发现要写教程还是好难啊（笑）.. 姑且把它们放在博客里，作为存档和记录吧。恳请有缘翻到的人不吝赐教，指出各种错漏之处。不胜感激。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554736905878&di=3b38a8d89838470147463009edfe02ef&imgtype=0&src=http%3A%2F%2Fgss0.baidu.com%2F-fo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2Fb2de9c82d158ccbf12d6a40a1ed8bc3eb1354193.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/04/08/5cab47cf7cfe7.png">
+<meta property="og:image" content="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3811800388,153732375&fm=11&gp=0.jpg">
+<meta property="og:image" content="https://i.loli.net/2019/04/08/5cab4b6fce9b5.png">
+<meta property="og:image" content="https://i.loli.net/2019/04/08/5cab4c202c1ec.png">
+<meta property="og:updated_time" content="2019-06-20T14:07:12.269Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="音乐基础-Chapter1">
+<meta name="twitter:description" content="这一系列的文章本是组内新人任务的教程。虽然网上有很多关于乐理基础的文章和教程，但总感觉有些浅了，有些太深，更加上很多不太适合工科生阅读。故自己尝试写了写，发现要写教程还是好难啊（笑）.. 姑且把它们放在博客里，作为存档和记录吧。恳请有缘翻到的人不吝赐教，指出各种错漏之处。不胜感激。">
+<meta name="twitter:image" content="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554736905878&di=3b38a8d89838470147463009edfe02ef&imgtype=0&src=http%3A%2F%2Fgss0.baidu.com%2F-fo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2Fb2de9c82d158ccbf12d6a40a1ed8bc3eb1354193.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/20/音乐基础-1/"/>
+
+
+
+
+
+  <title>音乐基础-Chapter1 | 78ij's Notes</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">78ij's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/20/音乐基础-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="78ij">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="78ij's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">音乐基础-Chapter1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-20T22:00:53+08:00">
+                2019-06-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-20T22:07:12+08:00">
+                2019-06-20
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/音乐相关/" itemprop="url" rel="index">
+                    <span itemprop="name">音乐相关</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/音乐相关/文章/" itemprop="url" rel="index">
+                    <span itemprop="name">文章</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/音乐相关/文章/教程/" itemprop="url" rel="index">
+                    <span itemprop="name">教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,227
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这一系列的文章本是组内新人任务的教程。虽然网上有很多关于乐理基础的文章和教程，但总感觉有些浅了，有些太深，更加上很多不太适合工科生阅读。故自己尝试写了写，发现要写教程还是好难啊（笑）..</p>
+<p>姑且把它们放在博客里，作为存档和记录吧。恳请有缘翻到的人不吝赐教，指出各种错漏之处。不胜感激。</p>
+<a id="more"></a>
+<h1 id="音乐基础-——-Chapter-1"><a href="#音乐基础-——-Chapter-1" class="headerlink" title="音乐基础 —— Chapter 1"></a>音乐基础 —— Chapter 1</h1><p>众所周知，游戏是由很多部分有机组合起来的，其中一个经常被人忽略却十分重要的部分就是音乐——在游戏中往往作为背景而存在。</p>
+<p>如果你想对音乐的基础知识有更多的了解，或者想尝试创作，可以<strong>参考</strong>本任务的学习路线。由于这是一个附加在所有任务之外的任务，你可以选择不在MU中展示你的学习成果。不过我相信，如果你有了一些成果，你会非常乐于将它分享给其他人。</p>
+<p>本任务是这个任务系列中的第一个（我不保证会有后续任务，咕就完事了），旨在让学习者了解音乐理论中最基本的，作为后面内容基石的那些知识。我选择巨细靡遗地讲述这些知识而不是直接给出一个学习列表，后面的任务可能不会这么做。如果你确定对这些已经了然于胸，可以直接跳过。</p>
+<h1 id="1-音乐家的语言——乐谱"><a href="#1-音乐家的语言——乐谱" class="headerlink" title="1. 音乐家的语言——乐谱"></a>1. 音乐家的语言——乐谱</h1><p>音乐作为一种基于时间的艺术形式，必定是转瞬即逝的。那么我们需要一种特殊的方法将它持久化，这种方法称为记谱。目前被音乐界广泛采用的记谱法称为<code>五线谱</code>，但在一些场合，<code>简谱</code>也是常见的。我在这里只介绍五线谱，因为简谱本身是非常易于阅读的。</p>
+<h2 id="为什么音乐家们使用五线谱？"><a href="#为什么音乐家们使用五线谱？" class="headerlink" title="为什么音乐家们使用五线谱？"></a>为什么音乐家们使用五线谱？</h2><p>既然简谱易于阅读，那为什么不使用简谱降低音乐学习的门槛？在某些问答平台上，这个问题上曾经爆发过极为激烈的争论。但使用五线谱自有它的理由，在我看来，有下面几点：</p>
+<ol>
+<li>发明五线谱的是西方人。作为现代西方音乐的始祖，中古宗教音乐的特性是<code>多声</code>，即由多个声部同时演唱或演奏。在表现多声上，五线谱比简谱优越得多——这点在后面的介绍中将是十分明显的。</li>
+<li>在音程、旋律的走向上，五线谱比简谱来得更加直观。</li>
+<li>五线谱是基于<code>固定唱名法</code>，而简谱是基于<code>可变唱名法</code>，前者可能在复杂调式互相转换时比较有优势。</li>
+</ol>
+<p>值得提及的是，古代中国也有很多记谱方法，比如<code>工尺谱</code>，<code>减字谱</code>等，这些不在我们讨论范围之内。</p>
+<h2 id="对五线谱的介绍"><a href="#对五线谱的介绍" class="headerlink" title="对五线谱的介绍"></a>对五线谱的介绍</h2><p>注意，在学习本章的时候，手头最好有一架钢琴/电钢琴/midi键盘/任何电脑音乐制作软件提供的钢琴窗(Piano Scroll)</p>
+<p>学习如何看五线谱，可以从一个钢琴键盘和五线谱表的对应开始：</p>
+<p><img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1554736905878&amp;di=3b38a8d89838470147463009edfe02ef&amp;imgtype=0&amp;src=http%3A%2F%2Fgss0.baidu.com%2F-fo3dSag_xI4khGko9WTAnF6hhy%2Fzhidao%2Fpic%2Fitem%2Fb2de9c82d158ccbf12d6a40a1ed8bc3eb1354193.jpg" alt=""></p>
+<p>以上是我随便找的一张图，不过还是比较直观的。由于钢琴的每一个键对应一个音，而且其排列是从左向右依次排开，便可以将钢琴的每一个键看成横坐标，而将五线谱中音符的位置看做纵坐标。</p>
+<h3 id="五线谱如何表示音高（Pitch）？"><a href="#五线谱如何表示音高（Pitch）？" class="headerlink" title="五线谱如何表示音高（Pitch）？"></a>五线谱如何表示音高（Pitch）？</h3><p>由上图可知，五线谱表示<code>音高</code>的方法就是看音符的<code>符头</code>在线中的哪里。</p>
+<p>不过先等等，我还没定义什么是<code>音高</code>呢！</p>
+<p>要解释音高的概念是比较麻烦的，这涉及到不同的<code>律制</code>，这方面的内容可以自行查阅。但现在，我们只需要知道，钢琴上的每一个键对应的是一个固定的<code>音高</code>，而且每一个固定的<code>音高</code>对应着一个固定的频率——比如中央C下面的那个A对应的是440Hz或者442Hz。在对应完之后，我们给每个音高一个名字，这个名字写在上图钢琴键的白键上，对，就是那个ABCDEFG。这个字母通常我们称为<code>音名</code>。</p>
+<p>但在唱出这些音的时候，我们会给它们一个<code>唱名</code>，也就是我们常常听见的do，re，mi这些。单纯唱这些音高的时候，就用这些易于发音的音节将它们唱出。注意：唱名和音名的对应不一定总是如上图所示，但这点我们可以先按下不表，因为它没有那么重要。</p>
+<p>另外，可以看到，音名和唱名总是隔着7个白键就循环一次，这个循环我们称之为<code>八度</code>，因为每一个八度上对应的音的频率总是相差一倍，在和声学上，我们将这些音归为一类，只是通过大小写和下标去区分它们。</p>
+<p>好了，接下来我们继续讲五线谱。</p>
+<p>我们刚才提到了<code>符头</code>的概念，上面五线谱中，符头就是每一个空心的小圆圈的位置。这个圆圈的位置有可能在两条线中间，也有可能正好在某条线上，这些都代表一个音。所有的<code>线</code>和<code>间</code>位置都正好对应于钢琴上的一个白键。五线谱的五条线我们从下到上命名为一线到五线，如果这五条线不够表示我们的音高，我们就在上面或者上面加线，称为“上加x线”和“下加x线”。</p>
+<p>好了，上面一段我们解决了五线谱表示音高的<strong>相对</strong>关系，那我们怎么决定它的<strong>绝对</strong>位置呢？比如，我们怎么知道中央C对应的音符在哪个线上或者间里？这时候，我们就要请出<code>谱号</code>了。</p>
+<p><code>谱号</code>就是上图五线谱最左边的两个符号。正是它们决定了音符在五线谱上的绝对位置。（事实上，上面的五线谱有两个<code>谱表</code>，因为它有两个谱号，并有大括号将它们归为一组，这种记谱方式经常用于钢琴，上面是右手，下面是左手）上面那个瘦高瘦高的符号叫做高音谱号，它由德语的G演变而来。它指示这个谱表的二线上的音符是中央C上方的G——看看是不是？而下方的叫做低音谱号，它指示它的两个“点”中间的那条线代表中央C下面的F。谱号还有一种常用的叫中音谱号，只不过在教学中用的较少，但有一些乐器常用，比如中提琴和大管。</p>
+<p>如果多个符头共享一个符杆，或者多个音符写在同一位置，代表它们需要同时被演奏——也就是上面说的<code>多声音乐</code>的基础。</p>
+<p>符头旁还可以增添<code>临时升降号</code>：就是这两个符号♯（升半音）、♭（降半音）和♮（还原到原来的音）。（有趣的事实：升在英语中称为Sharp，降为Flat。现在你知道为什么C#叫C-Sharp了吧！）升和降分别指示这个音是那个白键的相邻上面一个或者下面一个键（包括黑键）。临时升降号的效力发挥一个小节（见后文），除非在过程中遇到还原号。</p>
+<h3 id="五线谱如何表示速度和节奏？"><a href="#五线谱如何表示速度和节奏？" class="headerlink" title="五线谱如何表示速度和节奏？"></a>五线谱如何表示速度和节奏？</h3><p>之前说过，音乐是时间的艺术。那么我们就需要<code>节奏</code>和<code>速度</code>来划分时间。</p>
+<p>我们先讲节奏如何划分。</p>
+<h4 id="节奏（Rhythm）"><a href="#节奏（Rhythm）" class="headerlink" title="节奏（Rhythm）"></a>节奏（Rhythm）</h4><p>我们将节奏的基本单位称为<code>拍</code>，要理解它很简单，只需要用固定的频率敲桌子就可以了。这个时候，你每敲一次桌子，我们就可以认为是经过了一拍。</p>
+<p>要理解拍如何和五线谱对应，我用一张图说明。</p>
+<p><img src="https://i.loli.net/2019/04/08/5cab47cf7cfe7.png" alt=""></p>
+<p>首先将注意力集中在上图的右半部分，忽略左边的谱号和数字。最右边的音符我们很熟悉——只有符头，而且是空心的。但左边四个音符是带有<code>符杆</code>的——它们有一个向上延伸的部分。符头和符杆决定了这个音符的<code>时值</code>。时值代表了这个音符所占时间的<strong>相对</strong>长度。</p>
+<p><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3811800388,153732375&amp;fm=11&amp;gp=0.jpg" alt=""></p>
+<p>上图指示了符头和符杆对应的时值。值得注意的是，从八分音符开始，就仅仅是增加符尾了（就是符杆上面的曲线），每增加一个符尾，音符时值变为原来的0.5倍。符杆上的从上到下时值依次为上面的0.5倍。必要的时候，我们可以在音符的符头后面加个小点，称为<code>附点</code>，这将使音符的时值增加其原本时值的0.5倍——一拍变为1.5拍，4拍变为6拍，等等。</p>
+<p>在上面的五线谱谱例中，你会发现有两个八分音符的符尾相连了，这样做第一是为了美观，第二是为了指示音符的分组，这在很长的连续段落中是很有用的。</p>
+<p>下面我们该讨论时值怎么和拍对应起来了。现在我们请出<code>拍号</code>，也就是谱号右边那个像分数一样的数字。它由两个数字构成，下面的那个数字代表<strong>多少分音符为一拍</strong>，上面的那个代表<strong>每小节有多少拍</strong>。注意，<code>4/4</code>通常记为<code>C</code>，这是一个古老的传统，从中古时候就开始使用了。</p>
+<p>下面再简短介绍一下<code>小节</code>，可以看到谱例中音符之间被用竖线隔开了，每一个单元就是一个小节（Bar或者Measure），小节记号将音乐的流动分块，便于指示位置（想想如果没有小节，交响乐团排练的时候该怎么指示从哪开始！），同时也指示演奏者演奏出一种“呼吸”的感觉。</p>
+<p>拍子并不是一成不变的。比如，如果一个小节里面有4拍（比如4/4），那么其强弱顺序应为<code>强-弱-次强-弱</code>（这就是”动次打次“的来源），3拍，则为<code>强-弱-弱</code>，2拍，则为<code>强-弱</code>。这和人类的直觉是相符合的，也很好的遵循了<strong>音乐应该尽量有对比和变化</strong>的原则。</p>
+<h4 id="速度（Tempo）"><a href="#速度（Tempo）" class="headerlink" title="速度（Tempo）"></a>速度（Tempo）</h4><p>下面我们讨论一下速度。速度，也就是上面的拍的绝对时长。我们照例先看一个谱例：</p>
+<p><img src="https://i.loli.net/2019/04/08/5cab4b6fce9b5.png" alt=""></p>
+<p>在上面的谱例增加了一个132的标记。这代表的是每分钟应该有132个四分音符。既然四分音符为一拍，那么每分钟就应该有132拍（132 Beats Per Minute，A.K.A 132 BPM）。就这么简单。现在我们就能将速度量化为一个非常精确的值了。</p>
+<p>值得提及的是，音乐界有一组约定俗成的速度标记（它们是意大利语），通常写在乐谱的开头。</p>
+<p><img src="https://i.loli.net/2019/04/08/5cab4c202c1ec.png" alt=""></p>
+<p>以上是五线谱的<code>最基础</code>内容，但应该能让你没有<strong>知识障碍</strong>（除了一小部分表情符号之类）地阅读以下乐谱（仅作为例子）：</p>
+<p>车尔尼：作品599之33  <a href="https://musescore.com/user/16091706/scores/3701791" target="_blank" rel="external">https://musescore.com/user/16091706/scores/3701791</a></p>
+<p>肖邦： 遗作，A小调圆舞曲 <a href="https://musescore.com/user/4609986/scores/1749181" target="_blank" rel="external">https://musescore.com/user/4609986/scores/1749181</a></p>
+<p>关于五线谱（如果你需要演奏），你还需要学习以下知识：</p>
+<ul>
+<li>连线，包括连音线和圆滑线</li>
+<li>表情符号</li>
+<li>各种休止符</li>
+<li>N连音（3连音，5连音等）</li>
+<li>特殊的小节线标记，比如反复等。不完全小节。</li>
+<li>…</li>
+</ul>
+<p>注意，上面我没有提到关于调式和其升降号的问题，这些问题将留到下面的调式、音程和和声部分讲述。</p>
+<p>阅读完本次教程之后的任务：</p>
+<p>你应该做到<code>尽量快</code>地阅读你遇到的五线谱的内容。这样你阅读后面的教程会比较轻松。</p>
+<ul>
+<li>比如，你应该尽量做到在10秒之内识别出一个小节内的所有内容。</li>
+<li>可以拿上面两个给出的谱子做实验。</li>
+</ul>
+<p>自学简谱，并将一些简谱翻译到五线谱。</p>
+<ul>
+<li>可以自己买一个五线谱本，也可以使用打谱软件。</li>
+<li>打谱软件：开源的<code>Musescore</code>，语法类似LaTex的<code>Lilypond</code>，广为使用的<code>OverTure</code>，非常硬核的<code>Finale</code>、<code>Sibelius</code>等等。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/音乐/" rel="tag"><i class="fa fa-tag"></i> 音乐</a>
+          
+            <a href="/tags/乐理/" rel="tag"><i class="fa fa-tag"></i> 乐理</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/27/UNet踩坑集锦/" rel="next" title="UNet踩坑集锦">
+                <i class="fa fa-chevron-left"></i> UNet踩坑集锦
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/20/音乐基础-2/" rel="prev" title="音乐基础-Chapter2">
+                音乐基础-Chapter2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMTQ5MC84MDU0"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.png"
+                alt="78ij" />
+            
+              <p class="site-author-name" itemprop="name">78ij</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/78ij" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:x739566858@outlook.com" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+            
+          </div>
+
+          <br/><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/3.0/cn/80x15.png" /></a><br />
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#音乐基础-——-Chapter-1"><span class="nav-number">1.</span> <span class="nav-text">音乐基础 —— Chapter 1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-音乐家的语言——乐谱"><span class="nav-number">2.</span> <span class="nav-text">1. 音乐家的语言——乐谱</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么音乐家们使用五线谱？"><span class="nav-number">2.1.</span> <span class="nav-text">为什么音乐家们使用五线谱？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对五线谱的介绍"><span class="nav-number">2.2.</span> <span class="nav-text">对五线谱的介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#五线谱如何表示音高（Pitch）？"><span class="nav-number">2.2.1.</span> <span class="nav-text">五线谱如何表示音高（Pitch）？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五线谱如何表示速度和节奏？"><span class="nav-number">2.2.2.</span> <span class="nav-text">五线谱如何表示速度和节奏？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#节奏（Rhythm）"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">节奏（Rhythm）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#速度（Tempo）"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">速度（Tempo）</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">78ij</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共22.3k字</span>
+</div>
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
