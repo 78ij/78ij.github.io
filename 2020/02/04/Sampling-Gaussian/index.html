@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="游记," />
+  <meta name="keywords" content="翻译,计算机图形学,概率论," />
 
 
 
@@ -86,22 +86,18 @@
 
 
 
-<meta name="description" content="不是很懂…我也不是很懂，我一个渣科学生，怎么莫名其妙就去北大参加比赛了呢？这一切都要归功于和蔼可亲（）的TXR学长盛（la）情（wo）邀（ru）请（keng）。我们一共有9个人，这9个人里面有：  4个安卓选手 2个设计选手 1个游戏选手 1个web选手 1个ai选手  （怎么感觉这个阵容这么诡异，看似一二三四五号位全齐，实则….）">
-<meta name="keywords" content="游记">
+<meta name="description" content="最近在弄光线追踪，其中有一些东西涉及概率和采样，看到一篇不错的文章：原文章，就将它翻译了过来。这个网站是普渡大学建立的，里面是一些学生撰写的教程之类（类似翻转课堂）。原网站上没看到版权声明，如有侵权请告知我，我将立刻删除。">
+<meta name="keywords" content="翻译,计算机图形学,概率论">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HackPKU游记">
-<meta property="og:url" content="http://yoursite.com/2018/05/19/packpku/index.html">
+<meta property="og:title" content="高斯分布的采样方法">
+<meta property="og:url" content="http://yoursite.com/2020/02/04/Sampling-Gaussian/index.html">
 <meta property="og:site_name" content="78ij&#39;s Notes">
-<meta property="og:description" content="不是很懂…我也不是很懂，我一个渣科学生，怎么莫名其妙就去北大参加比赛了呢？这一切都要归功于和蔼可亲（）的TXR学长盛（la）情（wo）邀（ru）请（keng）。我们一共有9个人，这9个人里面有：  4个安卓选手 2个设计选手 1个游戏选手 1个web选手 1个ai选手  （怎么感觉这个阵容这么诡异，看似一二三四五号位全齐，实则….）">
+<meta property="og:description" content="最近在弄光线追踪，其中有一些东西涉及概率和采样，看到一篇不错的文章：原文章，就将它翻译了过来。这个网站是普渡大学建立的，里面是一些学生撰写的教程之类（类似翻转课堂）。原网站上没看到版权声明，如有侵权请告知我，我将立刻删除。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://i2.bvimg.com/646395/eb671e5d512521b1.png">
-<meta property="og:image" content="http://i2.bvimg.com/646395/a1411a37a07ed8c5.png">
-<meta property="og:image" content="http://i2.bvimg.com/646395/cffb7ec4561ba61e.png">
-<meta property="og:updated_time" content="2018-05-19T09:43:46.876Z">
+<meta property="og:updated_time" content="2020-02-04T07:56:45.159Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HackPKU游记">
-<meta name="twitter:description" content="不是很懂…我也不是很懂，我一个渣科学生，怎么莫名其妙就去北大参加比赛了呢？这一切都要归功于和蔼可亲（）的TXR学长盛（la）情（wo）邀（ru）请（keng）。我们一共有9个人，这9个人里面有：  4个安卓选手 2个设计选手 1个游戏选手 1个web选手 1个ai选手  （怎么感觉这个阵容这么诡异，看似一二三四五号位全齐，实则….）">
-<meta name="twitter:image" content="http://i2.bvimg.com/646395/eb671e5d512521b1.png">
+<meta name="twitter:title" content="高斯分布的采样方法">
+<meta name="twitter:description" content="最近在弄光线追踪，其中有一些东西涉及概率和采样，看到一篇不错的文章：原文章，就将它翻译了过来。这个网站是普渡大学建立的，里面是一些学生撰写的教程之类（类似翻转课堂）。原网站上没看到版权声明，如有侵权请告知我，我将立刻删除。">
 
 
 
@@ -131,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/19/packpku/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/02/04/Sampling-Gaussian/"/>
 
 
 
 
 
-  <title>HackPKU游记 | 78ij's Notes</title>
+  <title>高斯分布的采样方法 | 78ij's Notes</title>
   
 
 
@@ -274,7 +270,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/19/packpku/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/04/Sampling-Gaussian/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="78ij">
@@ -291,7 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HackPKU游记</h1>
+          <h1 class="post-title" itemprop="name headline">高斯分布的采样方法</h1>
         
 
         <div class="post-meta">
@@ -303,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-19T16:11:35+08:00">
-                2018-05-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-04T14:14:08+08:00">
+                2020-02-04
               </time>
             
 
@@ -319,8 +315,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-05-19T17:43:46+08:00">
-                2018-05-19
+              <time title="更新于" itemprop="dateModified" datetime="2020-02-04T15:56:45+08:00">
+                2020-02-04
               </time>
             
           </span>
@@ -338,8 +334,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/游记/" itemprop="url" rel="index">
-                    <span itemprop="name">游记</span>
+                  <a href="/categories/技术/" itemprop="url" rel="index">
+                    <span itemprop="name">技术</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术/翻译/" itemprop="url" rel="index">
+                    <span itemprop="name">翻译</span>
                   </a>
                 </span>
 
@@ -369,7 +376,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,481
+                  1,036
                 </span>
               
 
@@ -394,48 +401,60 @@
       
 
       
-        <h1 id="不是很懂…"><a href="#不是很懂…" class="headerlink" title="不是很懂…"></a>不是很懂…</h1><p>我也不是很懂，我一个渣科学生，怎么莫名其妙就去北大参加比赛了呢？这一切都要归功于和蔼可亲（）的TXR学长盛（la）情（wo）邀（ru）请（keng）。我们一共有9个人，这9个人里面有：</p>
-<ul>
-<li>4个安卓选手</li>
-<li>2个设计选手</li>
-<li>1个游戏选手</li>
-<li>1个web选手</li>
-<li>1个ai选手</li>
-</ul>
-<p>（怎么感觉这个阵容这么诡异，看似一二三四五号位全齐，实则….）</p>
+        <p>最近在弄光线追踪，其中有一些东西涉及概率和采样，看到一篇不错的文章：<a href="https://www.projectrhea.org/rhea/index.php/The_principles_for_how_to_generate_random_samples_from_a_Gaussian_distribution" target="_blank" rel="external">原文章</a>，就将它翻译了过来。这个网站是普渡大学建立的，里面是一些学生撰写的教程之类（类似翻转课堂）。原网站上没看到版权声明，如有侵权请告知我，我将立刻删除。</p>
 <a id="more"></a>
-<h1 id="所以，我们到底做什么？"><a href="#所以，我们到底做什么？" class="headerlink" title="所以，我们到底做什么？"></a>所以，我们到底做什么？</h1><p>于是在5月10号星期四这天的晚上，我们坐上了去往北京西的硬卧车。需要说明的是，我们9个人分了两队参赛，另一组5个人，我们这组4个人。然而我们在上火车的时候还完全不知道我们到底要做什么…</p>
-<p>所以大家在火车上展开了严肃而活泼的讨论：鉴于我们组有两个安卓选手，我们打算就做个安卓产品算了。但是头脑风暴了半天，感觉也想不出来什么痛点…这时候XYX同学站出来说，我们可以弄一个悬浮窗+便签的设计啊，这东西PC，MAC，iOS都有，就安卓没有。我们想这个可以有啊，于是就暂定做这个了。</p>
-<p>（然后我全程基本都在打酱油）</p>
-<h1 id="PKUTQL！！！！！！"><a href="#PKUTQL！！！！！！" class="headerlink" title="PKUTQL！！！！！！"></a>PKUTQL！！！！！！</h1><p>然后我们在第二天的8:10分顺利到达了PKU…第一件事就是把行李放下。比赛地点是在PKU二教附近地下的全球大学生创新创业中心（简称双创中心）。这地方真的很不错，里面装潢相当现代，还自带一个类似于阶梯教室的小讲堂，看上去PKU同学们经常在这里举办活动。</p>
-<p>解决了早饭问题（在PKU附近的KFC），我就去找我亲爱的高中同学们玩了。不得不说，PKU是个相当神奇的地方，或者换句话说，底蕴确实不是一般的深厚，但我确实也感觉不太习惯。鉴于这不是本游记的重要部分，就此略过吧。</p>
-<h1 id="开始？"><a href="#开始？" class="headerlink" title="开始？"></a>开始？</h1><p>时间一晃到了5月11日7:30。听完了相对（某些领导讲话）来说比较简短的开幕式之后，我们就又回到了座位上…这回，老问题又出来了：我们到底做什么？为什么我们会发生动摇呢，原因在于下午有一个北大的游戏选手（一个台湾交换生）和我们攀谈。其实我心里一直是有一个游戏构想的，那时候大致有了一个雏形，就和他说了一下。他说可以考虑和我们一起开发…多了一个人，我就比较有底气开发出一个相对完整的游戏了。所以我们在9点多就又陷入了问题之中…但是我的队友们听到我游戏的构想，觉得还不错，便也同意开发游戏，于是大家就纷纷打开Unity…</p>
-<h1 id="我的游戏构想"><a href="#我的游戏构想" class="headerlink" title="我的游戏构想"></a>我的游戏构想</h1><p>一开始其实我只是从Roguelike游戏出发的。因为众所周知，独立游戏为了减少美术和程序工作量，增加可玩性，一般来说十分青睐Roguelike这种游戏类型。之后我想到了组内一次分享中提到的“代码”这个主题。一下思路就拓宽了。之后，一个相对来说比较成熟的想法成型了：</p>
-<ul>
-<li>你扮演的是电脑中一段不知为何产生自我意识的<code>代码</code>，而一开始你并不知道这一点。（当然，这台电脑也不是一般的电脑，它可能是掌管某个国家核打击的电脑，等等）你的首要目标就是追寻你的真实身份，也就是探寻“我是谁”这样一个疑问。在地图（当然是随机生成的）中探索的过程中，你可以找到各种物品（当然也是随机生成的）。这些物品里面包含另外的代码，可以当做“装备”和“技能”使用，武装自己，还有电脑中的一些类似于LOG的玩意，从这之中玩家可以逐步推理出真相。而与此同时，有些同样获得自我意识的代码。有些代码只有初级意识，凭借本能攻击你，有些代码充当NPC，和他们的对话使你看见部分的真相，影响玩家的道德判断。游戏的最后，你要凭借你在游戏过程中的得到的所有信息进行一个善恶的选择：你是要保护这个”世界“，也就是计算机系统；还是毁灭它，和它同归于尽？（这个基础上其实可以拓展出各种结局的选择，我这里只是粗略的规定了一下，就如同《羞辱》中，每一关的选择都会在一定程度上影响世界最后的状态）</li>
-<li>还有游戏的名字。我们把它叫做《C0D3》,这个名字其实就是CODE这个单词的变体。同时也是一个十六进制数字，标识着主角最初觉醒的内存偏移位置，也是主角的名字。</li>
-</ul>
-<h1 id="肝"><a href="#肝" class="headerlink" title="肝"></a>肝</h1><p>长话短说：不幸的是，台湾交换生同学把我给鸽了…</p>
-<p>于是我们的安卓选手12小时速成C#，速成Unity，然后他们帮助我写UI逻辑。而在这最初的12个小时里，我把游戏的框架打出来了：</p>
-<ul>
-<li>首先，用cpp（有copy别人代码）写了一个地图生成器并将其和Unity联动，放弃了Unity原生的Tilemap系统，因为我感觉它和procedural方法生成的tilemap的兼容不是很好（当然，当时时间不多，很多判断都很可能不对）。于是我使用了Prefab大法：建立两种Prefab，一种墙一种地，然后在关卡加载的时候全部instantiate出来——非常sb但是实用的方法。</li>
-<li>然后就是添加LOS（Line Of Sight）系统，简单来说就是以玩家为中心发射射线，获取其和墙体的交点。如果没有交点就把交点定在摄像机外面的某个位置，再把这些交点按顺时针或者逆时针连起来建立一个Mesh。这个Mesh用一个特殊的Camera去渲染，渲染到一个RenderTexture上。先将这个RT进行一次高斯模糊以获取软阴影。然后主相机调用这个RT，用其进行后处理，利用RT的RGB值（原RT只有黑白两种颜色，高斯模糊后相当于是个灰度图）对原图黑暗和光亮之间的插值。LOS就出来了。</li>
-</ul>
-<p>说起来轻巧，其实以上两点花了我好长的时间…</p>
-<p>然后要特别感谢我们的美术同学MXW！！！她比我肝的只多不少，而且像素风画的真的很好，让我不禁感叹，美术什么的我这辈子可以别想了…在这12小时里，她把我们游戏的主UI基本全部画出来了。然后无缝对接给两位安卓同学写逻辑。</p>
-<h1 id="12小时之后"><a href="#12小时之后" class="headerlink" title="12小时之后.."></a>12小时之后..</h1><p>最初12小时我其实睡了1个小时，因为连续6小时之后消耗有点大，再加上地图生成当时已经做出来了，就小睡了一会。</p>
-<p>其实框架打好之后我基本上是在和美术对接。当时我基本已经意识到，我当初定的过分宏伟的目标（见上文）基本是不可能实现了。要实现这么多内容不光是我自己，美术工作量是非常大的。要实现多个地图的tile，实现多个敌人及其动画，还有其他的一些UI，基本是不可能的。所以我们放弃了后续内容，专心写第一个关卡。</p>
-<p>美术同学于是拿出了主角的行走，攻击等动画（动画也是个麻烦大户啊），还有游戏界面的UI（血条，耐力条什么的），安卓同学们对Unity还不是很熟，UI最后的集成也是我来做的。（UI真的真的太费时间了，应该也是因为我太菜了）</p>
-<p>哦对了，还有敌人的寻路系统。这个我一开始就没打算自己写，毕竟东西有点多。最后借用了大名鼎鼎的A<em> pathfinding project，效果还不错。50</em>50的地图大小加上8个方向的可行走路线，寻路基本上没有任何卡顿。</p>
-<h1 id="再说一遍-PKUTQL！！！"><a href="#再说一遍-PKUTQL！！！" class="headerlink" title="再说一遍 PKUTQL！！！"></a>再说一遍 PKUTQL！！！</h1><p>PKU伙食是真的好，全程肥宅快乐水/肥宅快乐仙贝/肥宅快乐薯片/肥宅快乐雪饼/肥宅快乐AD钙供应，两天夜宵还提供全家桶和披萨，真的是没的说了，只有说一句TQL了。</p>
-<h1 id="长话短说"><a href="#长话短说" class="headerlink" title="长话短说"></a>长话短说</h1><p>最后评委进场，我们给了两个评委评分。第一个真的特别严格（后来才知道他是PKU信科副教授..），第二个感觉挺友好的。但是到这个时候我们还没有任何进前十的希望（赛制是先评选前十，然后这十支队伍再进行答辩评出先后），因为完成度是在不算是特别高。</p>
-<p>但是…一个小时后工作人员告诉我们，我们进了……</p>
-<p>非常遗憾的是，答辩准备时间实在太少，而且我们做的是游戏，一个赞助商SDK都没用，也没什么可说的（客观原因），再加上我答辩太菜（主观原因），我们就拿了个第十…</p>
-<p>不过还是有1000块钱的（还是菜啊</p>
-<p>（小声逼逼：其实说真的四个大一萌新第一次参加hackathon还做的游戏，这个结果我觉得也还行了）</p>
-<h1 id="最后送上几张图"><a href="#最后送上几张图" class="headerlink" title="最后送上几张图"></a>最后送上几张图</h1><p><img src="http://i2.bvimg.com/646395/eb671e5d512521b1.png" alt=""></p>
-<p><img src="http://i2.bvimg.com/646395/a1411a37a07ed8c5.png" alt=""></p>
-<p><img src="http://i2.bvimg.com/646395/cffb7ec4561ba61e.png" alt=""></p>
+<h1 id="生成服从高斯分布之随机采样的方法"><a href="#生成服从高斯分布之随机采样的方法" class="headerlink" title="生成服从高斯分布之随机采样的方法"></a>生成服从高斯分布之随机采样的方法</h1><h2 id="1-引论"><a href="#1-引论" class="headerlink" title="1.引论"></a>1.引论</h2><p>这篇文章介绍如何产生服从高斯分布的随机采样。对于生成服从任意分布的随机采样的问题来说，有很多比较”通用”的解决方案。然而，在这篇文章中，我们将聚焦于生成高斯随机变量的简单方法，比如Box-Muller变换法。为此，我们先介绍逆变换法，它是生成随机采样的一个较为基础的方法。之后，我们将介绍Box-Muller变换。最后，我们介绍Marsaglia polar方法，它是对Box-Muller变换的一种改进。</p>
+<h2 id="2-逆变换采样法"><a href="#2-逆变换采样法" class="headerlink" title="2. 逆变换采样法"></a>2. 逆变换采样法</h2><p>令 $U$ 为一 $[0,1]$ 区间上服从均匀分布的随机变量。再令 $F$ 为随机变量 $X$ 的CDF（累积分布函数），其中 $X$ 即为我们想要采样的变量。则逆CDF有如下定义：</p>
+<script type="math/tex; mode=display">
+F^{-1}(u) = inf\{x|F(x) \le u, u \in [0,1]\}</script><p>其中，$inf$ 为集合的下确界。使用此逆CDF，可生成随机变量 $X$：</p>
+<script type="math/tex; mode=display">
+X \sim F^{-1}(U)</script><p>下面，使用此方法生成一个服从指数分布的随机采样。其pdf（概率密度函数）为：</p>
+<script type="math/tex; mode=display">
+f(x) = \lambda exp(-\lambda x)  ,  x \ge 0</script><p>下面计算CDF：</p>
+<script type="math/tex; mode=display">
+F(x) = \int_{-\infty}^{x}\lambda exp(-\lambda x')dx' = 1 - exp(-\lambda x) \le u</script><p>则可按如下方法解出x:</p>
+<script type="math/tex; mode=display">
+x = -\lambda^{-1}ln(1 - u)</script><p>话句话说，我们可以通过均匀随机变量$U$得到X：</p>
+<script type="math/tex; mode=display">
+X = -\lambda^{-1}ln(1 - U)</script><p>则此方法可用于生成任何随机采样，前提是随机变量服从的CDF的反函数比较容易求出。若不满足上述性质，也有很多其他的方法，如拒绝采样（rejection sampling），重要性采样（importance sampling），Hastings-Metropolis采样，等等。这些方法的介绍这里从略。</p>
+<h2 id="3-Box-Muller变换"><a href="#3-Box-Muller变换" class="headerlink" title="3. Box-Muller变换"></a>3. Box-Muller变换</h2><p>在介绍Box-Muller变换前，我们尝试运用逆变换来生成一个服从正态分布的随机采样：</p>
+<script type="math/tex; mode=display">
+F(x) = \int_{-\infty}^{x} \frac{1}{\sqrt{2\pi}}exp(-\frac{1}{2}(x')^2)dx'</script><p>上面的积分是积不出的（即，其解无法使用初等函数表示）因此，我们转而使用Box-Muller变换来生成服从正态分布的随机采样。</p>
+<p>令$(X,Y)$为一对相互独立的，服从正态分布的随机变量。则我们可将$F(x,y)$（CDF）表示为：</p>
+<script type="math/tex; mode=display">
+F(x,y)=\int_{-\infty}^{y}\int_{-\infty}^{x}\frac{1}{2\pi}exp(-\frac{1}{2}((x')^2+(y')^2))dx'dy'</script><p>（即，简单地将两个PDF相乘，并作积分。因为$X$与$Y$相互独立）</p>
+<p>接下来，令随机变量$R$和$\theta$为：</p>
+<script type="math/tex; mode=display">
+R = \sqrt{X^2+Y^2},\theta = tan(\frac{Y}{X}), \theta \in [0,2\pi]</script><p>则，$X$和$Y$可以反过来写为</p>
+<script type="math/tex; mode=display">
+X = Rcos(\theta),Y = Rsin(\theta)</script><p>将$F(x,y)$中自变量换元：</p>
+<script type="math/tex; mode=display">
+F(x,y) 
+= F(r,\theta) 
+= \int_{-\infty}^{\theta}\int_{-\infty}^{r}\frac{1}{2\pi}exp(-\frac{1}{2}(r'^2))r'dr'd\theta'\\\ 
+= \int_{0}^{\theta}\int_{0}^{r}\frac{1}{2\pi}exp(-\frac{1}{2}(r'^2))r'dr'd\theta'\\\ 
+= \frac{\theta}{2\pi}\{1 - exp(-\frac{1}{2}r^2)\}\\\  
+= F(r)F(\theta)</script><p>上面最后一个等号需要证明，证明是显然的，直接求出$r$和$\theta$的边缘分布即可。</p>
+<p>令$U_1$和$U_2$为$[0,1]$上服从均匀随机分布的变量，则我们令</p>
+<script type="math/tex; mode=display">
+F(\theta) \le u_1,F(r) \le 1-u_2</script><p>又有</p>
+<script type="math/tex; mode=display">
+F(r) = 1 - exp(-\frac{1}{2}r^2)\\\
+F(\theta) = \frac{\theta}{2\pi}</script><p>故</p>
+<script type="math/tex; mode=display">
+\theta = 2\pi u_1\\\
+r = \sqrt{-2ln(u_2)}</script><p>现在，我们就能用$U_1$和$U_2$计算$X$和$Y$了：</p>
+<script type="math/tex; mode=display">
+X = Rcos(\theta) = \sqrt{-2ln(U_2)}cos(2\pi U_1)  \\\
+Y = Rsin(\theta) = \sqrt{-2ln(U_2)}sin(2\pi U_1)</script><h2 id="Marsaglia-polar法"><a href="#Marsaglia-polar法" class="headerlink" title="Marsaglia polar法"></a>Marsaglia polar法</h2><p>从根本上说，Marsaglia法是为了从Box-Muller法中去除对三角函数的使用。我们可以从极坐标来考虑。令$W_1$和$W_2$是$[-1,1]$上服从均匀随机分布的变量，且满足$W_1^2+W_2^2 \lt 1$。可这样生成它们：</p>
+<script type="math/tex; mode=display">
+W_1 = 2U_1 - 1,W_2 = 2U_2-1,0\le W_1^2+W_2^2 \lt 1</script><p>这样，我们就能将$cos(2\pi U_1)$替换为$W_1 / \sqrt{W_1^2+W_2^2}$，将$sin(2\pi U_1)$替换为$W_2 / \sqrt{W_1^2+W_2^2}$。（本质上，就是通过拒绝法生成一个单位圆内的采样，并用这个采样进行Box Muller变换）</p>
+<p>另外，因为$W_1^2+W_2^2$在$[0,1)$上服从均匀分布，$\sqrt{-2ln(U_2)}$可替换为$\sqrt{-2ln(W_1^2+W_2^2)}$。则$X$和Y可 这样生成：</p>
+<script type="math/tex; mode=display">
+X = \sqrt{-2ln(W_1^2+W_2^2)}\frac{W_1}{\sqrt{W_1^2+W_2^2}} \\\
+Y = \sqrt{-2ln(W_1^2+W_2^2)}\frac{W_2}{\sqrt{W_1^2+W_2^2}}</script><h2 id="6-一段实例C代码，使用Marsaglia-polar法产生随机采样"><a href="#6-一段实例C代码，使用Marsaglia-polar法产生随机采样" class="headerlink" title="6. 一段实例C代码，使用Marsaglia polar法产生随机采样"></a>6. 一段实例C代码，使用Marsaglia polar法产生随机采样</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/************************************************************************/</span></div><div class="line">	gaussian -- generate a Gaussian random variable   </div><div class="line"> </div><div class="line">	            with mean <span class="string">'u'</span> <span class="keyword">and</span> standard deviation <span class="string">'d'</span></div><div class="line"><span class="comment">/************************************************************************/</span></div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">gaussian</span><span class="params">(<span class="keyword">double</span> u, <span class="keyword">double</span> d)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">        <span class="keyword">static</span> <span class="keyword">double</span> t = <span class="number">0.0</span>; </div><div class="line">        <span class="keyword">double</span> x, w1, w2, r;</div><div class="line">        <span class="keyword">if</span>( t == <span class="number">0</span> )</div><div class="line">     &#123; </div><div class="line">               <span class="keyword">do</span>&#123;</div><div class="line">                      w1 = <span class="number">2.0</span> * rnd() - <span class="number">1.0</span>; </div><div class="line">                      w2 = <span class="number">2.0</span> * rnd() - <span class="number">1.0</span>;</div><div class="line">                      r = w1 * w1 + w2 * w2;</div><div class="line">                  &#125;</div><div class="line">                <span class="keyword">while</span>( r &gt;= <span class="number">1.0</span> );</div><div class="line">                r = <span class="built_in">sqrt</span>( <span class="number">-2.0</span>*<span class="built_in">log</span>(r) / r );</div><div class="line">                t = w2 * r;</div><div class="line">                <span class="keyword">return</span>( u + w1 * r * d );</div><div class="line">       &#125;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">                x = t;</div><div class="line">                t = <span class="number">0.0</span>;</div><div class="line">                <span class="keyword">return</span>( u + x * d);</div><div class="line">        &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<hr>
 
       
     </div>
@@ -453,7 +472,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/游记/" rel="tag"><i class="fa fa-tag"></i> 游记</a>
+            <a href="/tags/翻译/" rel="tag"><i class="fa fa-tag"></i> 翻译</a>
+          
+            <a href="/tags/计算机图形学/" rel="tag"><i class="fa fa-tag"></i> 计算机图形学</a>
+          
+            <a href="/tags/概率论/" rel="tag"><i class="fa fa-tag"></i> 概率论</a>
           
         </div>
       
@@ -466,8 +489,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/01/music/" rel="next" title="关于游戏配乐">
-                <i class="fa fa-chevron-left"></i> 关于游戏配乐
+              <a href="/2019/06/20/音乐基础-2/" rel="next" title="音乐基础-Chapter2">
+                <i class="fa fa-chevron-left"></i> 音乐基础-Chapter2
               </a>
             
           </div>
@@ -475,10 +498,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/27/UNet踩坑集锦/" rel="prev" title="UNet踩坑集锦">
-                UNet踩坑集锦 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -634,7 +653,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#不是很懂…"><span class="nav-number">1.</span> <span class="nav-text">不是很懂…</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#所以，我们到底做什么？"><span class="nav-number">2.</span> <span class="nav-text">所以，我们到底做什么？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PKUTQL！！！！！！"><span class="nav-number">3.</span> <span class="nav-text">PKUTQL！！！！！！</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始？"><span class="nav-number">4.</span> <span class="nav-text">开始？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我的游戏构想"><span class="nav-number">5.</span> <span class="nav-text">我的游戏构想</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#肝"><span class="nav-number">6.</span> <span class="nav-text">肝</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#12小时之后"><span class="nav-number">7.</span> <span class="nav-text">12小时之后..</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#再说一遍-PKUTQL！！！"><span class="nav-number">8.</span> <span class="nav-text">再说一遍 PKUTQL！！！</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#长话短说"><span class="nav-number">9.</span> <span class="nav-text">长话短说</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后送上几张图"><span class="nav-number">10.</span> <span class="nav-text">最后送上几张图</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#生成服从高斯分布之随机采样的方法"><span class="nav-number">1.</span> <span class="nav-text">生成服从高斯分布之随机采样的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-引论"><span class="nav-number">1.1.</span> <span class="nav-text">1.引论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-逆变换采样法"><span class="nav-number">1.2.</span> <span class="nav-text">2. 逆变换采样法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Box-Muller变换"><span class="nav-number">1.3.</span> <span class="nav-text">3. Box-Muller变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Marsaglia-polar法"><span class="nav-number">1.4.</span> <span class="nav-text">Marsaglia polar法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-一段实例C代码，使用Marsaglia-polar法产生随机采样"><span class="nav-number">1.5.</span> <span class="nav-text">6. 一段实例C代码，使用Marsaglia polar法产生随机采样</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -383,7 +383,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,253
+                  3,211
                 </span>
               
 
@@ -414,12 +414,33 @@
 <a id="more"></a>
 <h1 id="为什么使用-frac-1-z-？"><a href="#为什么使用-frac-1-z-？" class="headerlink" title="为什么使用$\frac{1}{z}$？"></a>为什么使用$\frac{1}{z}$？</h1><p>和人们的第一直觉相悖的是，GPU硬件并不线性地存储深度数据（即是代表物体和相机距离的一个数）。GPU实际上存储的是这一深度数据的倒数。我想简要地讨论这一做法的原因。</p>
 <p>在这篇文章中，我使用 $d$ 来代表深度缓存中存储的值（在$[0,1]$范围内），使用 $z$ 来代表世界-空间深度。换句话说，就是沿着视线方向的距离，此距离用世界单位（比如说，米）来表示。一般地，它们之间的关系如下：</p>
-<p>$$d=a\frac{1}{z} + b$$</p>
-<p>公式中，$a,b$ 是两个常数，和远近剪裁面的设置有关。也就是说，$d$ 和 $\frac{1}{z}$ 始终是线性关系。</p>
+<script type="math/tex; mode=display">d=a\frac{1}{z} + b</script><p>公式中，$a,b$ 是两个常数，和远近剪裁面的设置有关。也就是说，$d$ 和 $\frac{1}{z}$ 始终是线性关系。</p>
 <p>看见这个公式，你可能会想，$d$ 和 $z$ 之间可能采取任何可能的函数形式，但是为什么我们恰恰选择了这一种？其实，这其中有两个原因。</p>
 <p>第一个原因是，$\frac{1}{z}$ 和透视投影的映射方式天然的吻合。透视投影是在保持直线在投影后仍然是直线的情况下，最为“一般”的一种投影方式。保证直线不“弯曲”十分便于显示硬件进行光栅化，这样，三角形的平直边界投影后在屏幕空间中仍然是以直线形式存在的。而在硬件进行透视除法（透视投影对坐标的最后一步变换——译者注）时，我们可以自然地得出 $\frac{1}{z}$ 这个因子：</p>
-<p>$$<br>\begin{bmatrix} .\\<br>.\\<br>z_c\\<br>w_c<br>\end{bmatrix}<br>=<br>\begin{bmatrix}<br>\cdot&amp;    &amp;    &amp;    \\<br>    &amp;\cdot&amp;    &amp;    \\<br>        &amp;    &amp;b&amp;a\\<br>   &amp;    &amp;1&amp;0<br>   \end{bmatrix}<br>\begin{bmatrix}<br>.\\<br>.\\<br>z\\<br>1<br>\end{bmatrix}<br>   \\<br>   \\<br>   d \equiv \frac{z_c}{w_c}\\<br>   = \frac{a+bz}{z}\\<br>   =a\frac{1}{z}+b<br>$$</p>
-<p>当然，这种方法十分方便之处在于，这个透视投影矩阵可以和其他任意矩阵相乘，以把多个坐标变换过程组合成一个。</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix} .\\\
+.\\\
+z_c\\\
+w_c
+\end{bmatrix} 
+= 
+\begin{bmatrix}
+\cdot&    &    &    \\\
+    &\cdot&    &    \\\
+        &    &b&a\\\
+   &    &1&0
+   \end{bmatrix}
+\begin{bmatrix}
+.\\\
+.\\\
+z\\\
+1
+\end{bmatrix}
+   \\\
+   \\\
+   d \equiv \frac{z_c}{w_c}\\\
+   = \frac{a+bz}{z}\\\
+   =a\frac{1}{z}+b</script><p>当然，这种方法十分方便之处在于，这个透视投影矩阵可以和其他任意矩阵相乘，以把多个坐标变换过程组合成一个。</p>
 <p>第二个理由，<a href="http://www.humus.name/index.php?ID=255" target="_blank" rel="external">如Emil Persson所说</a>，$\frac{1}{z}$ 在<strong>屏幕空间</strong>是线性的，所以在光栅化三角形时对 $z$ 插值十分方便，同时，分层z缓存(hierarchical Z-buffers)，提前z拣选（early Z-culling），深度缓存压缩(depth buffer compression)这些算法也更容易实现。</p>
 <h1 id="深度缓存的可视化展现"><a href="#深度缓存的可视化展现" class="headerlink" title="深度缓存的可视化展现"></a>深度缓存的可视化展现</h1><p>方程太繁琐了！要不我们看些图吧！</p>
 <p><img src="https://developer.nvidia.com/sites/default/files/akamai/gameworks/blog/Depthprecision/graph1.jpg" alt="placeholder"></p>
@@ -601,7 +622,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -623,7 +644,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -691,7 +712,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -715,7 +736,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共22.3k字</span>
+  <span class="post-count">博客全站共23.3k字</span>
 </div>
         
 
