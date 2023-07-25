@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "SceneHGN: Hierarchical Graph Networks for 3D Indoor Scene Generation with Fine-Grained Geometry"
+date:   2013-01-27 22:21:59 +00:00
+image: /images/scene.png
+categories: research
+author: "Jia-Mu Sun"
+authors: "Lin Gao, <strong>Jia-Mu Sun</strong>, Kaichun Mo, Yu-Kun Lai, Leonidas J. Guibas, Jie Yang"
+venue: "IEEE Transactions on Pattern Analysis and Machine Intelligence (IEEE TPAMI), 2023"
+paper: https://arxiv.org/pdf/2302.10237.pdf
+video: http://geometrylearning.com/video/sceneHGN.mp4
+---
+
+Holistic understanding and generation of indoor 3D scenes using recursive hierarchical networks.
