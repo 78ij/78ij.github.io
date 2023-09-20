@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "SOL-NeRF: Sunlight Modeling for Outdoor Scene Decomposition and Relighting"
+date:   2015-01-27 22:21:59 +00:00
+image: /images/solnerf.jpg
+categories: research
+author: "Jia-Mu Sun"
+authors: " <strong>Jia-Mu Sun</strong>, Tong Wu, Yong-Liang Yang, Yu-Kun Lai, Lin Gao*"
+venue: "ACM SIGGRAPH Asia 2023"
+---
+
+Utilizing various priors and a novel sunlight modeling strategy to reconstruct and decompose outdoor scenes.
