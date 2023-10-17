@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "HAISOR: Human-Aware Indoor Scene Optimization via Deep Reinforcement Learning"
+date:   2015-01-27 22:21:59 +00:00
+image: /images/haisor.png
+categories: research
+author: "Jia-Mu Sun"
+authors: " <strong>Jia-Mu Sun</strong>, Jie Yang, Kaichun Mo, Yu-Kun Lai, Leonidas J. Guibas, Lin Gao*"
+venue: "ACM Transactions on Graphics (Accepted)"
+---
+
+Use Deep Reinforcement Learning and Monte Carlo Search Tree to solve scene optimization problems incorporating human behaviour that is not differentiable.

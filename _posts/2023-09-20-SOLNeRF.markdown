@@ -7,6 +7,7 @@ categories: research
 author: "Jia-Mu Sun"
 authors: " <strong>Jia-Mu Sun</strong>, Tong Wu, Yong-Liang Yang, Yu-Kun Lai, Lin Gao*"
 venue: "ACM SIGGRAPH Asia 2023"
+project: http://geometrylearning.com/SOL-NeRF/
 ---
 
 Utilizing various priors and a novel sunlight modeling strategy to reconstruct and decompose outdoor scenes.
