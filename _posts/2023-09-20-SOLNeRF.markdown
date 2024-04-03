@@ -7,6 +7,7 @@ categories: research
 author: "Jia-Mu Sun"
 authors: " <strong>Jia-Mu Sun</strong>, Tong Wu, Yong-Liang Yang, Yu-Kun Lai, Lin Gao*"
 venue: "ACM SIGGRAPH Asia 2023"
+paper: https://dl.acm.org/doi/10.1145/3610548.3618143
 project: http://geometrylearning.com/SOL-NeRF/
 ---
 

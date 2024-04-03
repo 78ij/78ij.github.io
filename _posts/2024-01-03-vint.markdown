@@ -1,0 +1,13 @@
+---
+layout: post
+title:  "Recent advances in implicit representation-based 3D shape generation"
+date:   2015-01-27 22:21:59 +00:00
+image: /images/vint.png
+categories: research
+author: "Jia-Mu Sun"
+authors: " <strong>Jia-Mu Sun</strong>, Tong Wu, Lin Gao*"
+venue: "Visual Intelligence, 2024"
+paper: https://link.springer.com/article/10.1007/s44267-024-00042-1
+---
+
+A comprehensive survey about implicit representation-based shape generation works published before August 2023.

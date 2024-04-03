@@ -6,7 +6,8 @@ image: /images/haisor.png
 categories: research
 author: "Jia-Mu Sun"
 authors: " <strong>Jia-Mu Sun</strong>, Jie Yang, Kaichun Mo, Yu-Kun Lai, Leonidas J. Guibas, Lin Gao*"
-venue: "ACM Transactions on Graphics (Accepted)"
+venue: "ACM Transactions on Graphics, 2024"
+paper: https://dl.acm.org/doi/10.1145/3632947
 ---
 
 Use Deep Reinforcement Learning and Monte Carlo Search Tree to solve scene optimization problems incorporating human behaviour that is not differentiable.
