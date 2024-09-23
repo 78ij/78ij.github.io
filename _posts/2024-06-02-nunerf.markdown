@@ -1,0 +1,13 @@
+---
+layout: post
+title:  "NU-NeRF: Neural Reconstruction of Nested Transparent Objects with Uncontrolled Capture Environment"
+date:   2015-01-27 22:21:59 +00:00
+image: /images/NUNeRF.png
+categories: research
+author: "Jia-Mu Sun"
+authors: "<strong>Jia-Mu Sun</strong>, Tong Wu, Ling-Qi Yan, Lin Gao*"
+venue: "ACM Transactions on Graphics (SIGGRAPH Asia 2024)"
+project: http://geometrylearning.com/NU-NeRF/
+---
+
+Use a two-stage manner to reconstruct nested scenes with complex transparent effects without the need of additional inpus like mask.
