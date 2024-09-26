@@ -1,0 +1,12 @@
+---
+layout: post
+title:  "DMiT: Deformable Mipmapped Tri-Plane Representation for Dynamic Scenes"
+date:   2015-01-27 22:21:59 +00:00
+image: /images/dmit.png
+categories: research
+author: "Jia-Mu Sun"
+authors: "Jing-Wen Yang, <strong>Jia-Mu Sun</strong>, Yongliang Yang, Jie Yang, Ying Shan, Yan-Pei Cao, Lin Gao*"
+venue: "European Conference on Computer Vision (ECCV), 2024"
+---
+
+Use mipmapped triplane and joint geometry and deformation refinement to enhance anti-aliasing and novel view synthesis of dynamic scenes.
