@@ -2,7 +2,7 @@
 layout: post
 title:  "Differentiable Light Transport with Gaussian Surfels via Adapted Radiosity for Efficient Relighting and Geometry Reconstruction"
 date:   2015-01-27 22:21:59 +00:00
-image: /images/DL.png
+image: /images/radiosity_gs.jpg
 categories: research
 author: "Jia-Mu Sun"
 authors: "Kaiwen Jiang,  <strong>Jia-Mu Sun</strong>,  Zilu Li,  Dan Wang,  Tzu-Mao Li,  Ravi Ramamoorthi"
